@@ -19,7 +19,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf739684-5864-4dc7-bda2-db75deebb894" name="Default Changelist" comment="" />
+    <list default="true" id="bf739684-5864-4dc7-bda2-db75deebb894" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,6 +39,8 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
@@ -45,7 +51,7 @@
       <option name="MAIN_CLASS_NAME" value="sample.Main" />
       <module name="FINAL_PROJECT" />
       <option name="REDIRECT_INPUT" value="true" />
-      <option name="VM_PARAMETERS" value="--module-path $PROJECT_DIR$/../../development/javafx-sdk-15.0.1/lib --add-modules javafx.controls,javafx.fxml" />
+      <option name="VM_PARAMETERS" value="--module-path $USER_HOME$/Desktop/DEVELOPMENT/javafx-sdk-15.0.1/lib --add-modules javafx.controls,javafx.fxml" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="sample.*" />
@@ -56,10 +62,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="name" type="Java Scratch">
       <option name="MAIN_CLASS_NAME" value="sample.main" />
       <module name="FINAL_PROJECT" />
-      <option name="VM_PARAMETERS" value="--module-path $PROJECT_DIR$/../../DEVELOPMENT/javafx-sdk-15.0.1/lib --add-modules javafx.controls,javafx.fxml" />
+      <option name="VM_PARAMETERS" value="--module-path $USER_HOME$/DEVELOPMENT/javafx-sdk-15.0.1/lib --add-modules javafx.controls,javafx.fxml" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -82,8 +99,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1605551258135</updated>
+      <workItem from="1605594771683" duration="282000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -98,10 +119,11 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="184" y="88" width="1071" height="700" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605551877828">
-      <screen x="0" y="23" width="1440" height="806" />
+    <state x="184" y="88" width="1071" height="700" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605595056873">
+      <screen x="0" y="23" width="1440" height="808" />
     </state>
     <state x="184" y="88" width="1071" height="700" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.806@0.23.1440.806" timestamp="1605551877828" />
+    <state x="184" y="88" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.808@0.23.1440.808" timestamp="1605595056873" />
     <state width="1398" height="207" key="GridCell.Tab.0.bottom" timestamp="1605551884584">
       <screen x="0" y="23" width="1440" height="806" />
     </state>
@@ -118,10 +140,11 @@
       <screen x="0" y="23" width="1440" height="806" />
     </state>
     <state width="1398" height="207" key="GridCell.Tab.0.right/0.23.1440.806@0.23.1440.806" timestamp="1605551884583" />
-    <state x="208" y="23" key="SettingsEditor" timestamp="1605551315602">
-      <screen x="0" y="23" width="1440" height="806" />
+    <state x="208" y="23" key="SettingsEditor" timestamp="1605594893049">
+      <screen x="0" y="23" width="1440" height="808" />
     </state>
     <state x="208" y="23" key="SettingsEditor/0.23.1440.806@0.23.1440.806" timestamp="1605551315602" />
+    <state x="208" y="23" key="SettingsEditor/0.23.1440.808@0.23.1440.808" timestamp="1605594893049" />
     <state x="533" y="347" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605551479464">
       <screen x="0" y="23" width="1440" height="806" />
     </state>
