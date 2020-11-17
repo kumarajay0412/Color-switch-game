@@ -18,7 +18,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
 
         //Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Color Switch 1");
+        primaryStage.setTitle("Color Switch");
         //final Circle circ = new Circle(100, 60, 10);
         Best b1;
         b1 = new Best();
@@ -27,7 +27,7 @@ public class Main extends Application {
 
 
 
-        primaryStage.setScene(new Scene(root, 400, 575, Color.BEIGE));
+        primaryStage.setScene(new Scene(root, 400, 575, Color.BLACK));
         primaryStage.show();
 
     }
