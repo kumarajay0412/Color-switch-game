@@ -99,7 +99,7 @@ class runGame {
     ArrayList<OP> gameData;
 
     void displayScreen() {
-
+        ball.position();
     }
 
 }
