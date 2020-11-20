@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Line;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
@@ -174,14 +175,22 @@ abstract class Shapes {
     abstract void create();
 }
 
-class Line extends Shapes {
+class line extends Shapes {
 
     @Override
     void create() {
         Line line = new Line();
+        line.setStroke(Color.RED);
 
 
 
+    }
+}
+
+class curve extends Shapes {
+
+    @Override
+    void create() {
 
     }
 }
@@ -212,7 +221,7 @@ abstract class obstacle {
 }
 
 class lineObstacle extends obstacle {
-    Line l1 = new Line();
+
 
 
     @Override
@@ -222,6 +231,8 @@ class lineObstacle extends obstacle {
 
     @Override
     void makeObstacle() {
+        line l1 = new line();
+
 
     }
 }
