@@ -13,6 +13,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
@@ -44,8 +45,6 @@ public class Main extends Application {
         launch(args);
         //Best b = new Best(primaryStage);
         //b.startGame();
-
-
     }
 }
 
@@ -81,16 +80,12 @@ class Best implements EventHandler<ActionEvent> {
         button2.setStyle("-fx-background-radius: 15px; -fx-background-color: #a2d6a2;  -fx-font-size: 2em;");
         button3.setStyle("-fx-background-radius: 15px; -fx-background-color: #a2d6a2;  -fx-font-size: 2em;");
         Image image = new Image(new FileInputStream("/Users/ajay/IdeaProjects/FINAL_PROJECT/Code/src/2.gif"));
-        ImageView imageView = new ImageView(image);
-        HBox hbxImg = new HBox();
-        hbxImg.setAlignment(Pos.CENTER);
-        hbxImg.getChildren().add(imageView);
 
+        ImageView imageView = new ImageView(image);
         imageView.setFitHeight(200);
         imageView.setFitWidth(350);
-
-
         Line line = new Line();
+
         line.setStartX(0.0);
         line.setStartY(0.0);
         line.setEndX(500.0);
@@ -101,62 +96,73 @@ class Best implements EventHandler<ActionEvent> {
         rotate.setAxis(Rotate.Z_AXIS);
         rotate.setToAngle(720);
         rotate.setCycleCount(Timeline.INDEFINITE);
-        rotate.setDuration(Duration.millis(7000));
-        line.setStrokeWidth(5);
+        rotate.setDuration(Duration.millis(11000));
         rotate.setAutoReverse(false);
-        rotate.setNode(line);
 
         RotateTransition rotate1 = new RotateTransition();
         rotate1.setAxis(Rotate.Z_AXIS);
         rotate1.setToAngle(-720);
         rotate1.setCycleCount(Timeline.INDEFINITE);
-        rotate1.setDuration(Duration.millis(8000));
+        rotate1.setDuration(Duration.millis(11000));
         rotate1.setAutoReverse(false);
-        rotate1.setNode(line);
 
         RotateTransition rotate2 = new RotateTransition();
         rotate2.setAxis(Rotate.Z_AXIS);
-        rotate2.setToAngle(-720);
+        rotate2.setToAngle(720);
         rotate2.setCycleCount(Timeline.INDEFINITE);
-        rotate2.setDuration(Duration.millis(8000));
+        rotate2.setDuration(Duration.millis(11000));
         rotate2.setAutoReverse(false);
-        rotate2.setNode(line);
 
         RotateTransition rotate3 = new RotateTransition();
         rotate3.setAxis(Rotate.Z_AXIS);
         rotate3.setToAngle(720);
         rotate3.setCycleCount(Timeline.INDEFINITE);
-        rotate3.setDuration(Duration.millis(7000));
+        rotate3.setDuration(Duration.millis(11000));
         rotate3.setAutoReverse(false);
-        rotate3.setNode(line);
 
-        Group group = new Group();
+        RotateTransition rotate4 = new RotateTransition();
+        rotate4.setAxis(Rotate.Z_AXIS);
+        rotate4.setToAngle(-720);
+        rotate4.setCycleCount(Timeline.INDEFINITE);
+        rotate4.setDuration(Duration.millis(11000));
+        rotate4.setAutoReverse(false);
+
+
+        Group lineobstacle1 = new Group();
         Group groupcircleobstacle = new Group();
         Group arccircle1 = new Group();
         Group arccircle2 = new Group();
         Group arccircle3 = new Group();
+        Group lineobstacle = new Group();
+        Group rectangleline =new Group();
+        Group rectangleline1 =new Group();
+        Group rectangleline2 =new Group();
+
 
         Line line1 = new Line();
         Line line2 = new Line();
         Line line3 = new Line();
         Line line4 = new Line();
 
-        line1.setStartX(0.0);
-        line1.setStartY(0.0);
-        line2.setStartX(0.0);
-        line2.setStartY(0.0);
-        line3.setStartX(0.0);
-        line3.setStartY(0.0);
-        line4.setStartX(0.0);
-        line4.setStartY(0.0);
-        line1.setEndX(100.0);
-        line1.setEndY(0.0);
-        line2.setEndX(0.0);
-        line2.setEndY(100.0);
-        line3.setEndX(-100.0);
-        line3.setEndY(0.0);
-        line4.setEndX(0.0);
-        line4.setEndY(-100.0);
+
+        line1.setStartX(100);
+        line1.setStartY(0);
+        line2.setStartX(100);
+        line2.setStartY(0);
+        line3.setStartX(100);
+        line3.setStartY(0);
+        line4.setStartX(100);
+        line4.setStartY(0);
+
+        line1.setEndX(150);
+        line1.setEndY(0);
+        line2.setEndX(100);
+        line2.setEndY(50);
+        line3.setEndX(50);
+        line3.setEndY(0);
+        line4.setEndX(100);
+        line4.setEndY(-50);
+
         line1.setStroke(Color.rgb(250, 225, 0));
         line2.setStroke(Color.rgb(144, 13, 255));
         line3.setStroke(Color.rgb(255, 1, 129));
@@ -166,8 +172,119 @@ class Best implements EventHandler<ActionEvent> {
         line3.setStrokeWidth(15);
         line4.setStrokeWidth(15);
 
-        group.getChildren().addAll(line1, line2,line3,line4);
+        lineobstacle1.getChildren().addAll(line1,line2,line3,line4);
 
+        Line line5 = new Line();
+        Line line6 = new Line();
+        Line line7 = new Line();
+        Line line8 = new Line();
+
+        line5.setStartX(0.0);
+        line5.setStartY(0.0);
+        line6.setStartX(0.0);
+        line6.setStartY(0.0);
+        line7.setStartX(0.0);
+        line7.setStartY(0.0);
+        line8.setStartX(0.0);
+        line8.setStartY(0.0);
+        line5.setEndX(50.0);
+        line5.setEndY(0.0);
+        line6.setEndX(0.0);
+        line6.setEndY(50.0);
+        line7.setEndX(-50.0);
+        line7.setEndY(0.0);
+        line8.setEndX(0.0);
+        line8.setEndY(-50.0);
+        line5.setStroke(Color.rgb(250, 225, 0));
+        line6.setStroke(Color.rgb(144, 13, 255));
+        line7.setStroke(Color.rgb(255, 1, 129));
+        line8.setStroke(Color.rgb(50, 219, 240));
+        line5.setStrokeWidth(15);
+        line6.setStrokeWidth(15);
+        line7.setStrokeWidth(15);
+        line8.setStrokeWidth(15);
+
+        lineobstacle.getChildren().addAll(line5,line6,line7,line8);
+
+        Pane canvas = new Pane();
+        lineobstacle.relocate(110, 0);
+        lineobstacle1.relocate(220,0);
+        canvas.getChildren().addAll(lineobstacle1,lineobstacle);
+
+        Line liner1 = new Line();
+        Line liner2 = new Line();
+        Line liner3 = new Line();
+        Line liner4 = new Line();
+
+
+        liner1.setStartX(100);
+        liner1.setStartY(100);
+        liner2.setStartX(100);
+        liner2.setStartY(-100);
+        liner3.setStartX(-100);
+        liner3.setStartY(-100);
+        liner4.setStartX(-100);
+        liner4.setStartY(100);
+
+        liner1.setEndX(100);
+        liner1.setEndY(-100);
+        liner2.setEndX(-100);
+        liner2.setEndY(-100);
+        liner3.setEndX(-100);
+        liner3.setEndY(100);
+        liner4.setEndX(100);
+        liner4.setEndY(100);
+
+        liner1.setStroke(Color.rgb(250, 225, 0));
+        liner2.setStroke(Color.rgb(144, 13, 255));
+        liner3.setStroke(Color.rgb(255, 1, 129));
+        liner4.setStroke(Color.rgb(50, 219, 240));
+        liner1.setStrokeWidth(15);
+        liner2.setStrokeWidth(15);
+        liner3.setStrokeWidth(15);
+        liner4.setStrokeWidth(15);
+
+        rectangleline1.getChildren().addAll(liner1,liner2,liner3,liner4);
+
+
+        Line liner5 = new Line();
+        Line liner6 = new Line();
+        Line liner7 = new Line();
+        Line liner8 = new Line();
+
+
+        liner5.setStartX(70);
+        liner5.setStartY(70);
+        liner6.setStartX(70);
+        liner6.setStartY(-70);
+        liner7.setStartX(-70);
+        liner7.setStartY(-70);
+        liner8.setStartX(-70);
+        liner8.setStartY(70);
+
+        liner5.setEndX(70);
+        liner5.setEndY(-70);
+        liner6.setEndX(-70);
+        liner6.setEndY(-70);
+        liner7.setEndX(-70);
+        liner7.setEndY(70);
+        liner8.setEndX(70);
+        liner8.setEndY(70);
+
+        liner5.setStroke(Color.rgb(250, 225, 0));
+        liner6.setStroke(Color.rgb(144, 13, 255));
+        liner7.setStroke(Color.rgb(255, 1, 129));
+        liner8.setStroke(Color.rgb(50, 219, 240));
+        liner5.setStrokeWidth(15);
+        liner6.setStrokeWidth(15);
+        liner7.setStrokeWidth(15);
+        liner8.setStrokeWidth(15);
+
+        rectangleline2.getChildren().addAll(liner5,liner6,liner7,liner8);
+        Pane canvasrectangleobstacle = new Pane();
+        rectangleline1.relocate(140, 0);
+        rectangleline2.relocate(170,30);
+        canvasrectangleobstacle.getChildren().addAll(rectangleline1,rectangleline2);
 
         Arc arc1 = new Arc();
         Arc arc2 = new Arc();
@@ -328,22 +445,30 @@ class Best implements EventHandler<ActionEvent> {
         arccircle3.getChildren().addAll(arc9,arc10,arc11,arc12);
         groupcircleobstacle.getChildren().addAll(arccircle1,arccircle2,arccircle3,imageView3);
 
+
         rotate1.setNode(arccircle2);
         rotate.setNode(arccircle1);
-        rotate2.setNode(group);
+        rotate2.setNode(lineobstacle1);
         rotate3.setNode(arccircle3);
+        rotate4.setNode(lineobstacle);
+//        rotate1.setNode(rectangleline1);
+//        rotate.setNode(rectangleline2);
+
+    //    rotate4.setP
 
         rotate.setInterpolator(Interpolator.LINEAR);
         rotate1.setInterpolator(Interpolator.LINEAR);
         rotate2.setInterpolator(Interpolator.LINEAR);
         rotate3.setInterpolator(Interpolator.LINEAR);
+        rotate4.setInterpolator(Interpolator.LINEAR);
 
         rotate.play();
         rotate1.play();
         rotate2.play();
         rotate3.play();
+        rotate4.play();
 
-        VBox vBox = new VBox(10,imageView,button2,button3,groupcircleobstacle,group);
+        VBox vBox = new VBox(20,imageView,groupcircleobstacle);
         vBox.setAlignment(Pos.CENTER);
         vBox.setPrefWidth(450);
         vBox.setPrefHeight(575);
