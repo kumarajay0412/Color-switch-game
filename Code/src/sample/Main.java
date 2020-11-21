@@ -12,6 +12,7 @@ import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
@@ -35,7 +36,7 @@ public class Main extends Application {
 
         b1 = new Best(primaryStage);
         Group root = new Group(b1.mainMenu());
-        primaryStage.setScene(new Scene(root, 475, 750, Color.rgb(39,39,39)));
+        primaryStage.setScene(new Scene(root, 430, 750, Color.rgb(39,39,39)));
         new Best(primaryStage);
         primaryStage.show();
     }
@@ -81,17 +82,13 @@ class Best implements EventHandler<ActionEvent> {
         button3.setStyle("-fx-background-radius: 15px; -fx-background-color: #a2d6a2;  -fx-font-size: 2em;");
         Image image = new Image(new FileInputStream("/Users/ajay/IdeaProjects/FINAL_PROJECT/Code/src/2.gif"));
         ImageView imageView = new ImageView(image);
-        imageView.setX(25);
-        imageView.setY(25);
-        imageView.setFitHeight(220);
-        imageView.setFitWidth(400);
+        HBox hbxImg = new HBox();
+        hbxImg.setAlignment(Pos.CENTER);
+        hbxImg.getChildren().add(imageView);
 
-        Image image1 = new Image(new FileInputStream("/Users/ajay/IdeaProjects/FINAL_PROJECT/Code/src/1.gif"));
-        ImageView imageView1 = new ImageView(image1);
-        imageView1.setX(25);
-        imageView1.setY(25);
-        imageView1.setFitHeight(200);
-        imageView1.setFitWidth(200);
+        imageView.setFitHeight(200);
+        imageView.setFitWidth(350);
+
 
         Line line = new Line();
         line.setStartX(0.0);
@@ -125,10 +122,19 @@ class Best implements EventHandler<ActionEvent> {
         rotate2.setAutoReverse(false);
         rotate2.setNode(line);
 
+        RotateTransition rotate3 = new RotateTransition();
+        rotate3.setAxis(Rotate.Z_AXIS);
+        rotate3.setToAngle(720);
+        rotate3.setCycleCount(Timeline.INDEFINITE);
+        rotate3.setDuration(Duration.millis(7000));
+        rotate3.setAutoReverse(false);
+        rotate3.setNode(line);
+
         Group group = new Group();
         Group groupcircleobstacle = new Group();
         Group arccircle1 = new Group();
         Group arccircle2 = new Group();
+        Group arccircle3 = new Group();
 
         Line line1 = new Line();
         Line line2 = new Line();
@@ -151,10 +157,10 @@ class Best implements EventHandler<ActionEvent> {
         line3.setEndY(0.0);
         line4.setEndX(0.0);
         line4.setEndY(-100.0);
-        line1.setStroke(Color.SKYBLUE);
-        line2.setStroke(Color.YELLOW);
-        line3.setStroke(Color.INDIANRED);
-        line4.setStroke(Color.WHITE);
+        line1.setStroke(Color.rgb(250, 225, 0));
+        line2.setStroke(Color.rgb(144, 13, 255));
+        line3.setStroke(Color.rgb(255, 1, 129));
+        line4.setStroke(Color.rgb(50, 219, 240));
         line1.setStrokeWidth(15);
         line2.setStrokeWidth(15);
         line3.setStrokeWidth(15);
@@ -172,6 +178,11 @@ class Best implements EventHandler<ActionEvent> {
         Arc arc6 = new Arc();
         Arc arc7 = new Arc();
         Arc arc8 = new Arc();
+
+        Arc arc9 = new Arc();
+        Arc arc10 = new Arc();
+        Arc arc11 = new Arc();
+        Arc arc12 = new Arc();
 
         arc1.setCenterX(300.0f);
         arc1.setCenterY(150.0f);
@@ -219,8 +230,8 @@ class Best implements EventHandler<ActionEvent> {
 
         arc5.setCenterX(300.0f);
         arc5.setCenterY(150.0f);
-        arc5.setRadiusX(60.0f);
-        arc5.setRadiusY(60.0f);
+        arc5.setRadiusX(70.0f);
+        arc5.setRadiusY(70.0f);
         arc5.setStartAngle(0.0f);
         arc5.setLength(80.0f);
         arc5.setType(ArcType.OPEN);
@@ -230,8 +241,8 @@ class Best implements EventHandler<ActionEvent> {
 
         arc6.setCenterX(300.0f);
         arc6.setCenterY(150.0f);
-        arc6.setRadiusX(60.0f);
-        arc6.setRadiusY(60.0f);
+        arc6.setRadiusX(70.0f);
+        arc6.setRadiusY(70.0f);
         arc6.setStartAngle(90.0f);
         arc6.setLength(80.0f);
         arc6.setType(ArcType.OPEN);
@@ -241,8 +252,8 @@ class Best implements EventHandler<ActionEvent> {
 
         arc7.setCenterX(300.0f);
         arc7.setCenterY(150.0f);
-        arc7.setRadiusX(60.0f);
-        arc7.setRadiusY(60.0f);
+        arc7.setRadiusX(70.0f);
+        arc7.setRadiusY(70.0f);
         arc7.setStartAngle(180.0f);
         arc7.setLength(80.0f);
         arc7.setType(ArcType.OPEN);
@@ -252,8 +263,8 @@ class Best implements EventHandler<ActionEvent> {
 
         arc8.setCenterX(300.0f);
         arc8.setCenterY(150.0f);
-        arc8.setRadiusX(60.0f);
-        arc8.setRadiusY(60.0f);
+        arc8.setRadiusX(70.0f);
+        arc8.setRadiusY(70.0f);
         arc8.setStartAngle(270.0f);
         arc8.setLength(80.0f);
         arc8.setType(ArcType.OPEN);
@@ -261,27 +272,80 @@ class Best implements EventHandler<ActionEvent> {
         arc8.setStroke(Color.rgb(50, 219, 240));
         arc8.setStrokeWidth(10);
 
+        arc9.setCenterX(300.0f);
+        arc9.setCenterY(150.0f);
+        arc9.setRadiusX(50.0f);
+        arc9.setRadiusY(50.0f);
+        arc9.setStartAngle(0.0f);
+        arc9.setLength(80.0f);
+        arc9.setType(ArcType.OPEN);
+        arc9.setFill(null);
+        arc9.setStroke(Color.rgb(250, 225, 0));
+        arc9.setStrokeWidth(10);
+
+        arc10.setCenterX(300.0f);
+        arc10.setCenterY(150.0f);
+        arc10.setRadiusX(50.0f);
+        arc10.setRadiusY(50.0f);
+        arc10.setStartAngle(90.0f);
+        arc10.setLength(80.0f);
+        arc10.setType(ArcType.OPEN);
+        arc10.setFill(null);
+        arc10.setStroke(Color.rgb(144, 13, 255));
+        arc10.setStrokeWidth(10);
+
+        arc11.setCenterX(300.0f);
+        arc11.setCenterY(150.0f);
+        arc11.setRadiusX(50.0f);
+        arc11.setRadiusY(50.0f);
+        arc11.setStartAngle(180.0f);
+        arc11.setLength(80.0f);
+        arc11.setType(ArcType.OPEN);
+        arc11.setFill(null);
+        arc11.setStroke(Color.rgb(255, 1, 129));
+        arc11.setStrokeWidth(10);
+
+        arc12.setCenterX(300.0f);
+        arc12.setCenterY(150.0f);
+        arc12.setRadiusX(50.0f);
+        arc12.setRadiusY(50.0f);
+        arc12.setStartAngle(270.0f);
+        arc12.setLength(80.0f);
+        arc12.setType(ArcType.OPEN);
+        arc12.setFill(null);
+        arc12.setStroke(Color.rgb(50, 219, 240));
+        arc12.setStrokeWidth(10);
+
+        Image imagemiddele = new Image(new FileInputStream("/Users/ajay/IdeaProjects/FINAL_PROJECT/Code/src/4.png"));
+        ImageView imageView3 = new ImageView(imagemiddele);
+        imageView3.setX(268.0f);
+        imageView3.setY(119.0f);
+        imageView3.setFitHeight(67);
+        imageView3.setFitWidth(67);
+
         arccircle2.getChildren().addAll(arc5,arc6,arc7,arc8);
         arccircle1.getChildren().addAll(arc1,arc2,arc3,arc4);
-        groupcircleobstacle.getChildren().addAll(arccircle1,arccircle2);
+        arccircle3.getChildren().addAll(arc9,arc10,arc11,arc12);
+        groupcircleobstacle.getChildren().addAll(arccircle1,arccircle2,arccircle3,imageView3);
 
         rotate1.setNode(arccircle2);
         rotate.setNode(arccircle1);
         rotate2.setNode(group);
+        rotate3.setNode(arccircle3);
 
         rotate.setInterpolator(Interpolator.LINEAR);
         rotate1.setInterpolator(Interpolator.LINEAR);
         rotate2.setInterpolator(Interpolator.LINEAR);
+        rotate3.setInterpolator(Interpolator.LINEAR);
 
         rotate.play();
         rotate1.play();
-        rotate.play();
         rotate2.play();
+        rotate3.play();
 
-
-        VBox vBox = new VBox(10,imageView,button1,button2,button3,groupcircleobstacle,group);
+        VBox vBox = new VBox(10,imageView,button2,button3,groupcircleobstacle,group);
         vBox.setAlignment(Pos.CENTER);
-        vBox.setPrefWidth(500);
+        vBox.setPrefWidth(450);
         vBox.setPrefHeight(575);
 
         return vBox;
