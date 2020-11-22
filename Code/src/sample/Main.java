@@ -1,23 +1,23 @@
 package sample;
 
-import javafx.animation.Interpolator;
-import javafx.animation.RotateTransition;
-import javafx.animation.Timeline;
-import javafx.animation.TranslateTransition;
+import javafx.animation.*;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
+import javafx.geometry.VPos;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
+import javafx.scene.text.*;
 import javafx.scene.transform.Rotate;
 import javafx.scene.transform.Translate;
 import javafx.stage.Stage;
@@ -38,7 +38,7 @@ public class Main extends Application {
 
         b1 = new Best(primaryStage);
         Group root = new Group(b1.mainMenu());
-        primaryStage.setScene(new Scene(root, 400, 750, Color.rgb(39,39,39)));
+        primaryStage.setScene(new Scene(root, 425, 750, Color.rgb(39,39,39)));
         new Best(primaryStage);
         primaryStage.show();
     }
@@ -71,6 +71,7 @@ class Best implements EventHandler<ActionEvent> {
     }
 
     VBox mainMenu() throws FileNotFoundException {
+
         button1 = new Button("Start Game");
         button1.setOnAction(this);
         button2 = new Button("Load Game ");
@@ -83,11 +84,279 @@ class Best implements EventHandler<ActionEvent> {
 
 
         Image image = new Image(new FileInputStream("/Users/ajay/IdeaProjects/FINAL_PROJECT/Code/src/2.gif"));
-
         ImageView imageView = new ImageView(image);
         imageView.setFitHeight(200);
         imageView.setFitWidth(350);
 
+        Image image10 = new Image(new FileInputStream("/Users/ajay/IdeaProjects/FINAL_PROJECT/Code/src/10.png"));
+        ImageView imageView10 = new ImageView(image10);
+        imageView10.setFitHeight(65);
+        imageView10.setFitWidth(80);
+
+        Image image20 = new Image(new FileInputStream("/Users/ajay/IdeaProjects/FINAL_PROJECT/Code/src/20.png"));
+        ImageView imageView20 = new ImageView(image20);
+        imageView20.setFitHeight(65);
+        imageView20.setFitWidth(80);
+
+        Image image30 = new Image(new FileInputStream("/Users/ajay/IdeaProjects/FINAL_PROJECT/Code/src/30.png"));
+        ImageView imageView30 = new ImageView(image30);
+        imageView30.setFitHeight(60);
+        imageView30.setFitWidth(150);
+
+        Image image40 = new Image(new FileInputStream("/Users/ajay/IdeaProjects/FINAL_PROJECT/Code/src/help.png"));
+        ImageView imageView40 = new ImageView(image40);
+        imageView40.setFitHeight(100);
+        imageView40.setFitWidth(100);
+
+        Image image50 = new Image(new FileInputStream("/Users/ajay/IdeaProjects/FINAL_PROJECT/Code/src/exit.png"));
+        ImageView imageView50 = new ImageView(image50);
+        imageView50.setFitHeight(100);
+        imageView50.setFitWidth(100);
+
+        Image image111 = new Image(new FileInputStream("/Users/ajay/IdeaProjects/FINAL_PROJECT/Code/src/repeat.png"));
+        ImageView imagerepeat= new ImageView(image111);
+        imagerepeat.setFitHeight(100);
+        imagerepeat.setFitWidth(100);
+
+        Image imagestar1 = new Image(new FileInputStream("/Users/ajay/IdeaProjects/FINAL_PROJECT/Code/src/stars.png"));
+        ImageView imagestar= new ImageView(imagestar1);
+        imagestar.setFitHeight(70);
+        imagestar.setFitWidth(140);
+
+        Image imagestar2 = new Image(new FileInputStream("/Users/ajay/IdeaProjects/FINAL_PROJECT/Code/src/home.png"));
+        ImageView home= new ImageView(imagestar2);
+        home.setFitHeight(100);
+        home.setFitWidth(100);
+
+        Image imagestar21 = new Image(new FileInputStream("/Users/ajay/IdeaProjects/FINAL_PROJECT/Code/src/home.png"));
+        ImageView home1= new ImageView(imagestar21);
+        home1.setFitHeight(100);
+        home1.setFitWidth(100);
+
+        Image imagepause = new Image(new FileInputStream("/Users/ajay/IdeaProjects/FINAL_PROJECT/Code/src/pause.png"));
+        ImageView pause= new ImageView(imagepause);
+        pause.setFitHeight(100);
+        pause.setFitWidth(100);
+
+        Image imageplay = new Image(new FileInputStream("/Users/ajay/IdeaProjects/FINAL_PROJECT/Code/src/PLAY.png"));
+        ImageView play= new ImageView(imageplay);
+        play.setFitHeight(150);
+        play.setFitWidth(150);
+
+        Image imagesave = new Image(new FileInputStream("/Users/ajay/IdeaProjects/FINAL_PROJECT/Code/src/save.png"));
+        ImageView save= new ImageView(imagesave);
+        save.setFitHeight(150);
+        save.setFitWidth(150);
+
+        Pane colorswitch = new Pane();
+        imageView.relocate(40, 0);
+        colorswitch.getChildren().addAll(imageView);
+
+        Pane LOADGAME = new Pane();
+        imageView10.relocate(10, 210);
+        imageView30.relocate(140,210);
+        imageView20.relocate(335,210);
+        LOADGAME.getChildren().addAll(imageView10,imageView20,imageView30);
+
+        Pane bottom = new Pane();
+        imageView40.relocate(10, 200);
+        imageView50.relocate(300,200);
+
+        bottom.getChildren().addAll(imageView40,imageView50);
+
+        ScaleTransition scaleTransition = new ScaleTransition();
+        scaleTransition.setDuration(Duration.millis(2000));
+        scaleTransition.setNode(imageView30);
+        scaleTransition.setByY(.5);
+        scaleTransition.setByX(.5);
+        scaleTransition.setCycleCount(Timeline.INDEFINITE);
+        scaleTransition.setAutoReverse(true);
+        scaleTransition.play();
+
+        ScaleTransition scaleTransition1 = new ScaleTransition();
+        scaleTransition1.setDuration(Duration.millis(500));
+        scaleTransition1.setNode(imageView10);
+        scaleTransition1.setByY(.2);
+        scaleTransition1.setByX(.2);
+        scaleTransition1.setCycleCount(Timeline.INDEFINITE);
+        scaleTransition1.setAutoReverse(true);
+        scaleTransition1.play();
+
+        ScaleTransition scaleTransition2 = new ScaleTransition();
+        scaleTransition2.setDuration(Duration.millis(500));
+        scaleTransition2.setNode(imageView20);
+        scaleTransition2.setByY(.2);
+        scaleTransition2.setByX(.2);
+        scaleTransition2.setCycleCount(Timeline.INDEFINITE);
+        scaleTransition2.setAutoReverse(true);
+        scaleTransition2.play();
+
+        ScaleTransition scaleTransition3 = new ScaleTransition();
+        scaleTransition3.setDuration(Duration.millis(1000));
+        scaleTransition3.setNode(imageView40);
+        scaleTransition3.setByY(.05);
+        scaleTransition3.setByX(.05);
+        scaleTransition3.setCycleCount(Timeline.INDEFINITE);
+        scaleTransition3.setAutoReverse(true);
+        scaleTransition3.play();
+
+        ScaleTransition scaleTransition4 = new ScaleTransition();
+        scaleTransition4.setDuration(Duration.millis(1000));
+        scaleTransition4.setNode(imageView50);
+        scaleTransition4.setByY(.05);
+        scaleTransition4.setByX(.05);
+        scaleTransition4.setCycleCount(Timeline.INDEFINITE);
+        scaleTransition4.setAutoReverse(true);
+        scaleTransition4.play();
+
+
+        Line textArea = new Line();
+        textArea.setStartX(0.0);
+        textArea.setStartY(0.0);
+        textArea.setEndX(500.0);
+        textArea.setEndY(0);
+        textArea.setStroke(Color.rgb(221, 136, 39));
+        textArea.setStrokeWidth(80);
+
+        Line textArea1 = new Line();
+        textArea1.setStartX(0.0);
+        textArea1.setStartY(0.0);
+        textArea1.setEndX(500.0);
+        textArea1.setEndY(0);
+        textArea1.setStroke(Color.rgb(221, 136, 39));
+        textArea1.setStrokeWidth(80);
+
+        Text text = new Text("       SCORE");
+        text.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, 40));
+        text.setTextAlignment(TextAlignment.CENTER);
+        Group stack =new Group();
+        stack.getChildren().addAll(textArea, text);
+
+        Text text1 = new Text("200");
+        text1.setFont(Font.font ("Verdana", 40));
+        text1.setFill(Color.WHITE);
+
+        Text text2 = new Text("  BEST SCORE");
+        text2.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, 40));
+        text2.setTextAlignment(TextAlignment.JUSTIFY);
+
+        Group stack2 =new Group();
+        stack2.getChildren().addAll(textArea1, text2);
+
+        Text text3 = new Text("200");
+        text3.setFont(Font.font ("Verdana", 40));
+        text3.setFill(Color.WHITE);
+
+        Pane canvas121 = new Pane();
+        text3.relocate(180, 0);
+        canvas121.getChildren().addAll(text3);
+
+        Pane canvas122 = new Pane();
+        text1.relocate(180, 0);
+        canvas122.getChildren().addAll(text1);
+
+
+        Pane bottomend = new Pane();
+        imagestar.relocate(10, 0);
+        imagerepeat.relocate(170, -40);
+        home1.relocate(310, 0);
+
+        bottomend.getChildren().addAll(imagestar,imagerepeat,home1);
+        RotateTransition rotaterepeat = new RotateTransition();
+        rotaterepeat.setAxis(Rotate.Z_AXIS);
+        rotaterepeat.setToAngle(-720);
+        rotaterepeat.setCycleCount(Timeline.INDEFINITE);
+        rotaterepeat.setDuration(Duration.millis(11000));
+        rotaterepeat.setAutoReverse(false);
+        rotaterepeat.setNode(imagerepeat);
+        rotaterepeat.play();
+
+        ScaleTransition scaleTransitionstar = new ScaleTransition();
+        scaleTransitionstar.setDuration(Duration.millis(1000));
+        scaleTransitionstar.setNode(imagestar);
+        scaleTransitionstar.setByY(.06);
+        scaleTransitionstar.setByX(.06);
+        scaleTransitionstar.setCycleCount(Timeline.INDEFINITE);
+        scaleTransitionstar.setAutoReverse(true);
+        scaleTransitionstar.setInterpolator(Interpolator.LINEAR);
+        scaleTransitionstar.play();
+
+        ScaleTransition scaleTransitionhome = new ScaleTransition();
+        scaleTransitionhome.setDuration(Duration.millis(1000));
+        scaleTransitionhome.setNode(home);
+        scaleTransitionhome.setByY(.06);
+        scaleTransitionhome.setByX(.06);
+        scaleTransitionhome.setCycleCount(Timeline.INDEFINITE);
+        scaleTransitionhome.setAutoReverse(true);
+        scaleTransitionhome.setInterpolator(Interpolator.LINEAR);
+        scaleTransitionhome.play();
+
+        ScaleTransition scaleTransitionplay = new ScaleTransition();
+        scaleTransitionplay.setDuration(Duration.millis(1000));
+        scaleTransitionplay.setNode(play);
+        scaleTransitionplay.setByY(.07);
+        scaleTransitionplay.setByX(.07);
+        scaleTransitionplay.setCycleCount(Timeline.INDEFINITE);
+        scaleTransitionplay.setAutoReverse(true);
+        scaleTransitionplay.setInterpolator(Interpolator.LINEAR);
+        scaleTransitionplay.play();
+
+        ScaleTransition scaleTransitionsave = new ScaleTransition();
+        scaleTransitionsave.setDuration(Duration.millis(1000));
+        scaleTransitionsave.setNode(save);
+        scaleTransitionsave.setByY(.07);
+        scaleTransitionsave.setByX(.07);
+        scaleTransitionsave.setCycleCount(Timeline.INDEFINITE);
+        scaleTransitionsave.setAutoReverse(true);
+        scaleTransitionsave.setInterpolator(Interpolator.LINEAR);
+        scaleTransitionsave.play();
+
+
+        Text text4 = new Text("50 ");
+        text4.setFont(Font.font ("Verdana", 40));
+        text4.setFill(Color.WHITE);
+
+        Pane canvasstar = new Pane();
+        text4.relocate(60, 0);
+        canvasstar.getChildren().addAll(text4);
+
+        Text text5 = new Text("REVIVE ");
+        text5.setFont(Font.font ("Verdana", 40));
+        text5.setFill(Color.WHITE);
+
+        Pane canvasstar1 = new Pane();
+        text5.relocate(20, 0);
+        canvasstar1.getChildren().addAll(text5);
+
+        Text textpause = new Text("50");
+        textpause.setFont(Font.font ("Verdana", 40));
+        textpause.setFill(Color.WHITE);
+
+        Pane pausecanva = new Pane();
+        pause.relocate(300,10);
+        textpause.relocate(30, 30);
+        pausecanva.getChildren().addAll(textpause,pause);
+        pausecanva.relocate(0,360);
+
+        Pane homecanva = new Pane();
+        home.relocate(10,10);
+        homecanva.getChildren().addAll(home);
+
+        Text textpause1 = new Text("PAUSE");
+        textpause1.setFont(Font.font ("Verdana", 60));
+        textpause1.setFill(Color.WHITE);
+
+        Pane textpause1canva = new Pane();
+        textpause1.relocate(130,0);
+        textpause1canva.getChildren().addAll(textpause1);
+
+        Pane playcanva = new Pane();
+        play.relocate(140,0);
+        playcanva.getChildren().addAll(play);
+
+        Pane savecanva = new Pane();
+        save.relocate(140,0);
+        savecanva.getChildren().addAll(save);
 
         Line line = new Line();
         line.setStartX(0.0);
@@ -101,8 +370,8 @@ class Best implements EventHandler<ActionEvent> {
         rotate.setToAngle(720);
         rotate.setCycleCount(Timeline.INDEFINITE);
         rotate.setDuration(Duration.millis(11000));
+        rotate.setInterpolator(Interpolator.LINEAR);
         rotate.setAutoReverse(false);
-
 
 
         RotateTransition rotate1 = new RotateTransition();
@@ -110,6 +379,7 @@ class Best implements EventHandler<ActionEvent> {
         rotate1.setToAngle(-720);
         rotate1.setCycleCount(Timeline.INDEFINITE);
         rotate1.setDuration(Duration.millis(11000));
+        rotate1.setInterpolator(Interpolator.LINEAR);
         rotate1.setAutoReverse(false);
 
         RotateTransition rotate2 = new RotateTransition();
@@ -117,6 +387,7 @@ class Best implements EventHandler<ActionEvent> {
         rotate2.setToAngle(720);
         rotate2.setCycleCount(Timeline.INDEFINITE);
         rotate2.setDuration(Duration.millis(11000));
+        rotate2.setInterpolator(Interpolator.LINEAR);
         rotate2.setAutoReverse(false);
 
         RotateTransition rotate3 = new RotateTransition();
@@ -124,6 +395,7 @@ class Best implements EventHandler<ActionEvent> {
         rotate3.setToAngle(720);
         rotate3.setCycleCount(Timeline.INDEFINITE);
         rotate3.setDuration(Duration.millis(11000));
+        rotate3.setInterpolator(Interpolator.LINEAR);
         rotate3.setAutoReverse(false);
 
         RotateTransition rotate4 = new RotateTransition();
@@ -131,6 +403,7 @@ class Best implements EventHandler<ActionEvent> {
         rotate4.setToAngle(-720);
         rotate4.setCycleCount(Timeline.INDEFINITE);
         rotate4.setDuration(Duration.millis(11000));
+        rotate4.setInterpolator(Interpolator.LINEAR);
         rotate4.setAutoReverse(false);
 
 
@@ -220,6 +493,8 @@ class Best implements EventHandler<ActionEvent> {
         lineobstacle1.relocate(220,0);
         canvas.getChildren().addAll(lineobstacle1,lineobstacle);
 
+//      recyangleobstacle
+
         Line liner1 = new Line();
         Line liner2 = new Line();
         Line liner3 = new Line();
@@ -295,6 +570,28 @@ class Best implements EventHandler<ActionEvent> {
         rectangleline2.relocate(170,30);
         canvasrectangleobstacle.getChildren().addAll(rectangleline1,rectangleline2);
 
+        RotateTransition rotaterectangle = new RotateTransition();
+        rotaterectangle.setAxis(Rotate.Z_AXIS);
+        rotaterectangle.setToAngle(720);
+        rotaterectangle.setCycleCount(Timeline.INDEFINITE);
+        rotaterectangle.setDuration(Duration.millis(11000));
+        rotaterectangle.setAutoReverse(false);
+        rotaterectangle.setNode(rectangleline1);
+        rotaterectangle.setInterpolator(Interpolator.LINEAR);
+        rotaterectangle.play();
+
+        RotateTransition rotaterectangle1 = new RotateTransition();
+        rotaterectangle1.setAxis(Rotate.Z_AXIS);
+        rotaterectangle1.setToAngle(-720);
+        rotaterectangle1.setCycleCount(Timeline.INDEFINITE);
+        rotaterectangle1.setDuration(Duration.millis(10000));
+        rotaterectangle1.setAutoReverse(false);
+        rotaterectangle1.setNode(rectangleline2);
+        rotaterectangle1.setInterpolator(Interpolator.LINEAR);
+        rotaterectangle1.play();
+
+
+//      moving vericals lines
 
 
         Line linemov1 = new Line();
@@ -511,16 +808,6 @@ class Best implements EventHandler<ActionEvent> {
         translate4.setInterpolator(Interpolator.LINEAR);
         translate4.play();
 
-
-
-
-       // translate1.play();
-//        rotate2.setAxis(Rotate.Z_AXIS);
-//        rotate2.setToAngle(720);
-//        rotate2.setCycleCount(Timeline.INDEFINITE);
-//        rotate2.setDuration(Duration.millis(11000));
-//        rotate2.setAutoReverse(false);
-
         TranslateTransition translate102 = new TranslateTransition();
         translate102.setByX(-275);
         translate102.setDuration(Duration.millis(7000));
@@ -594,103 +881,60 @@ class Best implements EventHandler<ActionEvent> {
         translate14.play();
 
 
-
-        Line Triangleline1 = new Line();
-        Line Triangleline2  = new Line();
-        Line Triangleline3  = new Line();
-
-
-        Triangleline1.setStartX(0);
-        Triangleline1.setStartY(117.27);
-        Triangleline2.setStartX(111);
-        Triangleline2.setStartY(-75);
-        Triangleline3.setStartX(-111);
-        Triangleline3.setStartY(-75);
-
-        Triangleline1.setEndX(111);
-        Triangleline1.setEndY(-75);
-        Triangleline2.setEndX(-111);
-        Triangleline2.setEndY(-75);
-        Triangleline3.setEndX(0);
-        Triangleline3.setEndY(117.27);
-
-
-        Triangleline1.setStroke(Color.rgb(144, 13, 255));
-        Triangleline2.setStroke(Color.rgb(255, 1, 129));
-        Triangleline3.setStroke(Color.rgb(50, 219, 240));
-
-        Triangleline1.setStrokeWidth(15);
-        Triangleline1.setStrokeLineCap(StrokeLineCap.ROUND);
-        Triangleline2.setStrokeWidth(15);
-        Triangleline2.setStrokeLineCap(StrokeLineCap.ROUND);
-        Triangleline3.setStrokeWidth(15);
-        Triangleline3.setStrokeLineCap(StrokeLineCap.ROUND);
-
-        trianglegroup.getChildren().addAll(Triangleline1,Triangleline2,Triangleline3);
-
-        RotateTransition rotatetriangle = new RotateTransition(Duration.seconds(11),trianglegroup);
-        rotatetriangle.setAxis(Rotate.Z_AXIS);
-        rotatetriangle.setToAngle(720);
-        rotatetriangle.setCycleCount(Timeline.INDEFINITE);
-        rotatetriangle.setDuration(Duration.millis(11000));
-        rotatetriangle.setAutoReverse(false);
-        rotatetriangle.setInterpolator(Interpolator.LINEAR);
-        rotatetriangle.play();
-
+// horizontallines
 
         Line verticleline1 = new Line();
         Line verticleline2 = new Line();
-        Line verticleline3  = new Line();
+        Line verticleline3 = new Line();
         Line verticleline4 = new Line();
         Line verticleline5 = new Line();
         Line verticleline6 = new Line();
-        Line verticleline7  = new Line();
+        Line verticleline7 = new Line();
         Line verticleline8 = new Line();
 
-
-
-        verticleline1.setStartX(0);
+        verticleline1.setStartX(-480);
         verticleline1.setStartY(0);
-        verticleline2.setStartX(100);
+        verticleline2.setStartX(-380);
         verticleline2.setStartY(0);
-        verticleline3.setStartX(200);
+        verticleline3.setStartX(-280);
         verticleline3.setStartY(0);
-        verticleline4.setStartX(300);
+        verticleline4.setStartX(-180);
         verticleline4.setStartY(0);
-        verticleline5.setStartX(0);
+        verticleline5.setStartX(-80);
         verticleline5.setStartY(0);
-        verticleline6.setStartX(-100);
+        verticleline6.setStartX(20);
         verticleline6.setStartY(0);
-        verticleline7.setStartX(-200);
+        verticleline7.setStartX(120);
         verticleline7.setStartY(0);
-        verticleline8.setStartX(-300);
+        verticleline8.setStartX(220);
         verticleline8.setStartY(0);
 
-        verticleline1.setEndX(100);
+        verticleline1.setEndX(-380);
         verticleline1.setEndY(0);
-        verticleline2.setEndX(200);
+        verticleline2.setEndX(-280);
         verticleline2.setEndY(0);
-        verticleline3.setEndX(300);
+        verticleline3.setEndX(-180);
         verticleline3.setEndY(0);
-        verticleline4.setEndX(400);
+        verticleline4.setEndX(-80);
         verticleline4.setEndY(0);
-        verticleline5.setEndX(-100);
+        verticleline5.setEndX(20);
         verticleline5.setEndY(0);
-        verticleline6.setEndX(-200);
+        verticleline6.setEndX(120);
         verticleline6.setEndY(0);
-        verticleline7.setEndX(-300);
+        verticleline7.setEndX(220);
         verticleline7.setEndY(0);
-        verticleline8.setEndX(-400);
+        verticleline8.setEndX(320);
         verticleline8.setEndY(0);
+
 
         verticleline1.setStroke(Color.rgb(250, 225, 0));
         verticleline2.setStroke(Color.rgb(144, 13, 255));
         verticleline3.setStroke(Color.rgb(255, 1, 129));
         verticleline4.setStroke(Color.rgb(50, 219, 240));
-        verticleline8.setStroke(Color.rgb(250, 225, 0));
-        verticleline7.setStroke(Color.rgb(144, 13, 255));
-        verticleline6.setStroke(Color.rgb(255, 1, 129));
-        verticleline5.setStroke(Color.rgb(50, 219, 240));
+        verticleline5.setStroke(Color.rgb(250, 225, 0));
+        verticleline6.setStroke(Color.rgb(144, 13, 255));
+        verticleline7.setStroke(Color.rgb(255, 1, 129));
+        verticleline8.setStroke(Color.rgb(50, 219, 240));
 
         verticleline1.setStrokeWidth(15);
         verticleline2.setStrokeWidth(15);
@@ -701,29 +945,25 @@ class Best implements EventHandler<ActionEvent> {
         verticleline7.setStrokeWidth(15);
         verticleline8.setStrokeWidth(15);
 
-        Group  verticlelinegroup =new Group();
+        Group  verticlelinegroup23 =new Group();
         Group  verticlelinegroup1 =new Group();
 
-        verticlelinegroup.getChildren().addAll(verticleline1,verticleline2,verticleline3,verticleline4);
-        verticlelinegroup1.getChildren().addAll(verticleline8,verticleline5,verticleline6,verticleline7);
+        verticlelinegroup23.getChildren().addAll(verticleline1,verticleline2,verticleline3,verticleline4,verticleline5,verticleline6,verticleline7,verticleline8);
         Pane verticlelinegroupcanvas = new Pane();
-        verticlelinegroup.relocate(-300,0);
-        verticlelinegroup1.relocate(100,0);
-
-        verticlelinegroupcanvas.getChildren().addAll(verticlelinegroup,verticlelinegroup1);
-
+        verticlelinegroup23.relocate(-400,0);
+    //    verticlelinegroupcanvas.getChildren().addAll(verticleline1,verticleline2,verticleline3,verticleline4,verticleline5,verticleline6,verticleline7,verticleline8);
+        verticlelinegroupcanvas.getChildren().addAll(verticlelinegroup23);
 
         TranslateTransition verticlelinegrouptrans = new TranslateTransition();
-        verticlelinegrouptrans.setByX(275);
+        verticlelinegrouptrans.setByX(300);
         verticlelinegrouptrans.setDuration(Duration.millis(7000));
         verticlelinegrouptrans.setCycleCount(Timeline.INDEFINITE);
         verticlelinegrouptrans.setNode(verticlelinegroupcanvas);
-        verticlelinegrouptrans.setAutoReverse(false);
+        verticlelinegrouptrans.setAutoReverse(true);
         verticlelinegrouptrans.setInterpolator(Interpolator.LINEAR);
         verticlelinegrouptrans.play();
 
-
-
+// play animation button
         Arc arc1 = new Arc();
         Arc arc2 = new Arc();
         Arc arc3 = new Arc();
@@ -881,7 +1121,11 @@ class Best implements EventHandler<ActionEvent> {
         arccircle2.getChildren().addAll(arc5,arc6,arc7,arc8);
         arccircle1.getChildren().addAll(arc1,arc2,arc3,arc4);
         arccircle3.getChildren().addAll(arc9,arc10,arc11,arc12);
+
         groupcircleobstacle.getChildren().addAll(arccircle1,arccircle2,arccircle3,imageView3);
+        Pane playbutton = new Pane();
+        groupcircleobstacle.relocate(120, 150);
+        playbutton.getChildren().addAll(groupcircleobstacle);
 
 
         rotate1.setNode(arccircle2);
@@ -889,30 +1133,190 @@ class Best implements EventHandler<ActionEvent> {
         rotate2.setNode(lineobstacle1);
         rotate3.setNode(arccircle3);
         rotate4.setNode(lineobstacle);
-        rotate1.setNode(rectangleline1);
-        rotate.setNode(rectangleline2);
-       rotatetriangle.setNode(trianglegroup);
-
-    //    rotate4.setP
+       // rotate1.setNode(rectangleline1);
+       // rotate.setNode(rectangleline2);
 
         rotate.setInterpolator(Interpolator.LINEAR);
         rotate1.setInterpolator(Interpolator.LINEAR);
         rotate2.setInterpolator(Interpolator.LINEAR);
         rotate3.setInterpolator(Interpolator.LINEAR);
         rotate4.setInterpolator(Interpolator.LINEAR);
-        rotatetriangle.setInterpolator(Interpolator.LINEAR);
 
         rotate.play();
         rotate1.play();
         rotate2.play();
         rotate3.play();
         rotate4.play();
-        rotatetriangle.play();
-        //rotatetriangle.playFromStart();
-        VBox vBox = new VBox(20,imageView,verticlelinegroupcanvas,trianglegroup);
+
+        bottomend.setTranslateY(70);
+        canvas122.setTranslateY(-10);
+        canvas121.setTranslateY(0);
+        canvasstar.setTranslateY(20);
+        canvasstar1.setTranslateY(40);
+        stack2.setTranslateY(20);
+
+//        concentric circle obstacle
+
+        Arc twocircle1 = new Arc();
+        Arc twocircle2 = new Arc();
+        Arc twocircle3 = new Arc();
+        Arc twocircle4 = new Arc();
+
+        Arc twocircle5 = new Arc();
+        Arc twocircle6 = new Arc();
+        Arc twocircle7 = new Arc();
+        Arc twocircle8 = new Arc();
+
+
+        twocircle1.setCenterX(300.0f);
+        twocircle1.setCenterY(150.0f);
+        twocircle1.setRadiusX(90.0f);
+        twocircle1.setRadiusY(90.0f);
+        twocircle1.setStartAngle(0.0f);
+        twocircle1.setLength(80.0f);
+        twocircle1.setType(ArcType.OPEN);
+        twocircle1.setFill(null);
+        twocircle1.setStroke(Color.rgb(250, 225, 0));
+        twocircle1.setStrokeWidth(10);
+
+        twocircle2.setCenterX(300.0f);
+        twocircle2.setCenterY(150.0f);
+        twocircle2.setRadiusX(90.0f);
+        twocircle2.setRadiusY(90.0f);
+        twocircle2.setStartAngle(90.0f);
+        twocircle2.setLength(80.0f);
+        twocircle2.setType(ArcType.OPEN);
+        twocircle2.setFill(null);
+        twocircle2.setStroke(Color.rgb(144, 13, 255));
+        twocircle2.setStrokeWidth(10);
+
+        twocircle3.setCenterX(300.0f);
+        twocircle3.setCenterY(150.0f);
+        twocircle3.setRadiusX(90.0f);
+        twocircle3.setRadiusY(90.0f);
+        twocircle3.setStartAngle(180.0f);
+        twocircle3.setLength(80.0f);
+        twocircle3.setType(ArcType.OPEN);
+        twocircle3.setFill(null);
+        twocircle3.setStroke(Color.rgb(255, 1, 129));
+        twocircle3.setStrokeWidth(10);
+
+        twocircle4.setCenterX(300.0f);
+        twocircle4.setCenterY(150.0f);
+        twocircle4.setRadiusX(90.0f);
+        twocircle4.setRadiusY(90.0f);
+        twocircle4.setStartAngle(270.0f);
+        twocircle4.setLength(80.0f);
+        twocircle4.setType(ArcType.OPEN);
+        twocircle4.setFill(null);
+        twocircle4.setStroke(Color.rgb(50, 219, 240));
+        twocircle4.setStrokeWidth(10);
+
+        twocircle5.setCenterX(300.0f);
+        twocircle5.setCenterY(150.0f);
+        twocircle5.setRadiusX(70.0f);
+        twocircle5.setRadiusY(70.0f);
+        twocircle5.setStartAngle(0.0f);
+        twocircle5.setLength(80.0f);
+        twocircle5.setType(ArcType.OPEN);
+        twocircle5.setFill(null);
+        twocircle5.setStroke(Color.rgb(250, 225, 0));
+        twocircle5.setStrokeWidth(10);
+
+        twocircle6.setCenterX(300.0f);
+        twocircle6.setCenterY(150.0f);
+        twocircle6.setRadiusX(70.0f);
+        twocircle6.setRadiusY(70.0f);
+        twocircle6.setStartAngle(90.0f);
+        twocircle6.setLength(80.0f);
+        twocircle6.setType(ArcType.OPEN);
+        twocircle6.setFill(null);
+        twocircle6.setStroke(Color.rgb(144, 13, 255));
+        twocircle6.setStrokeWidth(10);
+
+        twocircle7.setCenterX(300.0f);
+        twocircle7.setCenterY(150.0f);
+        twocircle7.setRadiusX(70.0f);
+        twocircle7.setRadiusY(70.0f);
+        twocircle7.setStartAngle(180.0f);
+        twocircle7.setLength(80.0f);
+        twocircle7.setType(ArcType.OPEN);
+        twocircle7.setFill(null);
+        twocircle7.setStroke(Color.rgb(255, 1, 129));
+        twocircle7.setStrokeWidth(10);
+
+        twocircle8.setCenterX(300.0f);
+        twocircle8.setCenterY(150.0f);
+        twocircle8.setRadiusX(70.0f);
+        twocircle8.setRadiusY(70.0f);
+        twocircle8.setStartAngle(270.0f);
+        twocircle8.setLength(80.0f);
+        twocircle8.setType(ArcType.OPEN);
+        twocircle8.setFill(null);
+        twocircle8.setStroke(Color.rgb(50, 219, 240));
+        twocircle8.setStrokeWidth(10);
+
+        Group fullcircle = new Group();
+        Group fullcircle1 = new Group();
+        Group fullcircle2 = new Group();
+
+        fullcircle1.getChildren().addAll(twocircle1,twocircle2,twocircle3,twocircle4);
+        fullcircle2.getChildren().addAll(twocircle5,twocircle6,twocircle7,twocircle8);
+        fullcircle.getChildren().addAll(fullcircle1,fullcircle2);
+
+        RotateTransition rotatecircle1 = new RotateTransition();
+        rotatecircle1.setAxis(Rotate.Z_AXIS);
+        rotatecircle1.setToAngle(720);
+        rotatecircle1.setCycleCount(Timeline.INDEFINITE);
+        rotatecircle1.setDuration(Duration.millis(11000));
+        rotatecircle1.setAutoReverse(false);
+        rotatecircle1.setNode(fullcircle1);
+        rotatecircle1.setInterpolator(Interpolator.LINEAR);
+        rotatecircle1.play();
+
+        RotateTransition rotatecircle2 = new RotateTransition();
+        rotatecircle2.setAxis(Rotate.Z_AXIS);
+        rotatecircle2.setToAngle(-720);
+        rotatecircle2.setCycleCount(Timeline.INDEFINITE);
+        rotatecircle2.setDuration(Duration.millis(11000));
+        rotatecircle2.setAutoReverse(false);
+        rotatecircle2.setNode(fullcircle2);
+        rotatecircle2.setInterpolator(Interpolator.LINEAR);
+        rotatecircle2.play();
+
+//        MAINMENU
+
+//        VBox vBox = new VBox(30,colorswitch,playbutton,LOADGAME,bottom);
+//        vBox.setAlignment(Pos.CENTER);
+//        vBox.setPrefWidth(425);
+//        vBox.setPrefHeight(575);
+
+        //       ENDSCREEN
+//
+//        VBox vBox = new VBox(20,colorswitch,stack,canvas122,stack2,canvas121,bottomend ,canvasstar,canvasstar1);
+//        vBox.setAlignment(Pos.CENTER);
+//        vBox.setPrefWidth(425);
+//        vBox.setPrefHeight(575);
+
+        //       OBSTACLE1
+
+//        VBox vBox = new VBox(20,pausecanva,fullcircle,movinglinescanvas);
+//        vBox.setAlignment(Pos.CENTER);
+//        vBox.setPrefWidth(425);
+//        vBox.setPrefHeight(575);
+
+        //       OBSTACLE2
+
+        VBox vBox = new VBox(50,canvasrectangleobstacle,verticlelinegroupcanvas,canvas);
         vBox.setAlignment(Pos.CENTER);
-        vBox.setPrefWidth(450);
+        vBox.setPrefWidth(425);
         vBox.setPrefHeight(575);
+
+        //       SAVE2
+//
+//        VBox vBox = new VBox(50,homecanva,textpause1canva,playcanva,savecanva);
+//        vBox.setPrefWidth(425);
+//        vBox.setPrefHeight(575);
 
         return vBox;
     };
@@ -921,7 +1325,6 @@ class Best implements EventHandler<ActionEvent> {
         if (actionEvent.getSource() == button1) {
             startGame();
         }
-
 
         if (actionEvent.getSource() == button2) System.out.println("Game Loaded");
         if (actionEvent.getSource() == button3) {
