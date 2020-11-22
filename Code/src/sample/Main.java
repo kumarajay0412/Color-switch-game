@@ -12,6 +12,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -25,6 +26,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
+
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.io.FileInputStream;
@@ -49,6 +51,7 @@ public class Main extends Application {
     }
 }
 
+
 class Best implements EventHandler<ActionEvent> {
     Stage window;
 
@@ -65,10 +68,7 @@ class Best implements EventHandler<ActionEvent> {
         game.displayScreen();
 
     }
-    private void movePivot(Node node, double x, double y){
-        node.getTransforms().add(new Translate(-x,-y));
-        node.setTranslateX(x); node.setTranslateY(y);
-    }
+
 
     VBox mainMenu() throws FileNotFoundException {
 
@@ -1284,6 +1284,24 @@ class Best implements EventHandler<ActionEvent> {
         rotatecircle2.setInterpolator(Interpolator.LINEAR);
         rotatecircle2.play();
 
+        Circle circle = new Circle();
+        circle.setCenterX(200.0f);
+        circle.setCenterY(200.0f);
+        circle.setRadius(20.0f);
+        circle.setTranslateY(100);
+
+        TranslateTransition translate012 = new TranslateTransition();
+        translate012.setByY(50);
+        translate012.setDuration(Duration.millis(10000));
+        translate012.setCycleCount(2);
+        translate012.setNode(circle);
+        translate012.setAutoReverse(false);
+//        translate012.setInterpolator(Interpolator.LINEAR);
+        translate012.play();
+
+
+
+
 //        MAINMENU
 
 //        VBox vBox = new VBox(30,colorswitch,playbutton,LOADGAME,bottom);
@@ -1307,7 +1325,8 @@ class Best implements EventHandler<ActionEvent> {
 
         //       OBSTACLE2
 
-        VBox vBox = new VBox(50,canvasrectangleobstacle,verticlelinegroupcanvas,canvas);
+        VBox vBox = new VBox(50,canvasrectangleobstacle,verticlelinegroupcanvas,canvas,circle);
+  //      vBox.setOnMouseClicked();
         vBox.setAlignment(Pos.CENTER);
         vBox.setPrefWidth(425);
         vBox.setPrefHeight(575);
@@ -1320,6 +1339,10 @@ class Best implements EventHandler<ActionEvent> {
 
         return vBox;
     };
+    void jump(MouseEvent M){
+
+    }
+
     @Override
     public void handle(ActionEvent actionEvent) {
         if (actionEvent.getSource() == button1) {
@@ -1342,6 +1365,8 @@ class runGame {
     void displayScreen() {
         ball.position();
     }
+
+
 }
 interface OP {
     void touch();
