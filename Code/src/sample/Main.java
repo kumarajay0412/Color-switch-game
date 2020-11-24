@@ -1,5 +1,5 @@
 package sample;
-
+import javafx.scene.layout.Region;
 import javafx.animation.*;
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -1336,126 +1336,131 @@ class Best implements EventHandler<ActionEvent> {
 
         //       OBSTACLE2
 //
-        Circle circle = new Circle();
-        circle.setCenterX(200.0f);
-        circle.setCenterY(200.0f);
-        circle.setRadius(20.0f);
-        circle.setFill(Color.LIMEGREEN);
-        circle.setStroke(Color.BLACK);
+        double REQUIRED_WIDTH = 350.0;
+        double REQUIRED_HEIGHT = 150.0;
         SVGPath svg = new SVGPath();
         svg.setFill(Color.BLACK);
         svg.setStrokeWidth(1.0);
         svg.setStroke(Color.RED);
         svg.setContent("M 787.49,150 C 787.49,203.36 755.56,247.27 712.27,269.5 S 622.17,290.34 582.67,279.16 508.78,246.56 480,223.91 424.93,174.93 400,150 348.85,98.79 320,76.09 256.91,32.03 217.33,20.84 130.62,8.48 87.73,30.5 12.51,96.64 12.51,150 44.44,247.27 87.73,269.5 177.83,290.34 217.33,279.16 291.22,246.56 320,223.91 375.07,174.93 400,150 451.15,98.79 480,76.09 543.09,32.03 582.67,20.84 669.38,8.48 712.27,30.5 787.49,96.64 787.49,150 z");
-        PathTransition trans = new PathTransition(Duration.seconds(5), svg, circle);
-        trans.setOrientation(PathTransition.OrientationType.ORTHOGONAL_TO_TANGENT);
-        trans.setCycleCount(FadeTransition.INDEFINITE);
-        trans.setInterpolator(Interpolator.LINEAR);
-        trans.setAutoReverse(false);
-        trans.play();
+        resize(svg, REQUIRED_WIDTH, REQUIRED_HEIGHT);
 
-        Circle circle1 = new Circle();
-        circle1.setCenterX(200.0f);
-        circle1.setCenterY(200.0f);
-        circle1.setRadius(20.0f);
-        circle1.setFill(Color.RED);
-        circle1.setStroke(Color.RED);
-
-        SVGPath svg1 = new SVGPath();
-        svg1.setFill(Color.BLACK);
-        svg1.setStrokeWidth(1.0);
-        svg1.setStroke(Color.RED);
-        svg1.setContent("M 787.49,150 C 787.49,203.36 755.56,247.27 712.27,269.5 S 622.17,290.34 582.67,279.16 508.78,246.56 480,223.91 424.93,174.93 400,150 348.85,98.79 320,76.09 256.91,32.03 217.33,20.84 130.62,8.48 87.73,30.5 12.51,96.64 12.51,150 44.44,247.27 87.73,269.5 177.83,290.34 217.33,279.16 291.22,246.56 320,223.91 375.07,174.93 400,150 451.15,98.79 480,76.09 543.09,32.03 582.67,20.84 669.38,8.48 712.27,30.5 787.49,96.64 787.49,150 z");
-        PathTransition trans1 = new PathTransition(Duration.seconds(5), svg, circle1);
-        trans1.setOrientation(PathTransition.OrientationType.ORTHOGONAL_TO_TANGENT);
-        trans1.setCycleCount(FadeTransition.INDEFINITE);
-        trans1.setInterpolator(Interpolator.LINEAR);
-        trans1.setAutoReverse(false);
-        trans1.play();
-
-        Pane canvas122 = new Pane();
-        circle.relocate(180, 0);
-        circle1.relocate(250, 0);
-        canvas122.getChildren().addAll(circle,circle1);
-
-         int NUM_NODES = 64;
-        double W = 403;
-        double H = 403;
-         double NODE_SIZE = H / 8.0;
+        int NUM_NODES = 40;
+        double W = 210;
+        double H = 210;
+        double NODE_SIZE = H / 13.0;
 
         Pane content = new Pane();
-        for (int count = 0; count < 64; count++) {
-            if(count<8) {
+        for (int count = 0; count < 40; count++) {
+            if(count<5) {
                 Node node = new Circle(NODE_SIZE / 2, Color.rgb(250, 225, 0));
                 content.getChildren().add(node);
-                count=count+1;
                 final Transition transition = createPathTransition(svg, node);
                 transition.jumpTo(Duration.seconds(10).multiply(count * 1.0 / NUM_NODES));
                 transition.play();
             }
-            else if(8<count && count<16) {
+            else if(4<count && count<10) {
                 Node node = new Circle(NODE_SIZE / 2, Color.rgb(144, 13, 255));
                 content.getChildren().add(node);
-                count+=1;
                 final Transition transition = createPathTransition(svg, node);
                 transition.jumpTo(Duration.seconds(10).multiply(count * 1.0 / NUM_NODES));
                 transition.play();
             }
-            else if(16<count && count<24) {
+            else if(9<count && count<15) {
                 Node node = new Circle(NODE_SIZE / 2, Color.rgb(255, 1, 129));
                 content.getChildren().add(node);
-                count+=1;
                 final Transition transition = createPathTransition(svg, node);
                 transition.jumpTo(Duration.seconds(10).multiply(count * 1.0 / NUM_NODES));
                 transition.play();
             }
-            else if(24<count && count<32) {
+            else if(14<count && count<20) {
                 Node node = new Circle(NODE_SIZE / 2, Color.rgb(50, 219, 240));
                 content.getChildren().add(node);
-                count+=1;
                 final Transition transition = createPathTransition(svg, node);
                 transition.jumpTo(Duration.seconds(10).multiply(count * 1.0 / NUM_NODES));
                 transition.play();
             }
-            else if(32<count && count<40) {
+            else if(19<count && count<25) {
                 Node node = new Circle(NODE_SIZE / 2, Color.rgb(250, 225, 0));
                 content.getChildren().add(node);
-                count+=1;
                 final Transition transition = createPathTransition(svg, node);
                 transition.jumpTo(Duration.seconds(10).multiply(count * 1.0 / NUM_NODES));
                 transition.play();
             }
-            else if(40<count && count<48) {
+            else if(24<count && count<30) {
                 Node node = new Circle(NODE_SIZE / 2, Color.rgb(144, 13, 255));
                 content.getChildren().add(node);
-                count+=1;
                 final Transition transition = createPathTransition(svg, node);
                 transition.jumpTo(Duration.seconds(10).multiply(count * 1.0 / NUM_NODES));
                 transition.play();
             }
-            else if(48<count && count<56) {
+            else if(29<count && count<35) {
                 Node node = new Circle(NODE_SIZE / 2, Color.rgb(255, 1, 129));
                 content.getChildren().add(node);
-                count+=1;
                 final Transition transition = createPathTransition(svg, node);
                 transition.jumpTo(Duration.seconds(10).multiply(count * 1.0 / NUM_NODES));
                 transition.play();
             }
-            else if(56<count && count<64) {
+            else{
                 Node node = new Circle(NODE_SIZE / 2, Color.rgb(50, 219, 240));
                 content.getChildren().add(node);
-                count+=1;
                 final Transition transition = createPathTransition(svg, node);
                 transition.jumpTo(Duration.seconds(10).multiply(count * 1.0 / NUM_NODES));
                 transition.play();
             }
         }
         Pane canvas1212 = new Pane();
-        content.relocate(180, 180);
-
+        content.relocate(-180, 0);
         canvas1212.getChildren().addAll(content);
 
-        VBox vBox = new VBox(50,canvas1212);
+        Circle pathCircle = new Circle(200, 200, 150);
+
+        int NUM_NODES1 = 40;
+        double W1 = 200;
+        double H1 = 200;
+        double NODE_SIZE1 = H1 / 10.0;
+
+        Pane content1 = new Pane();
+        for (int count = 0; count < 40; count++) {
+            if(count<10) {
+                Node node = new Circle(NODE_SIZE1 / 2, Color.rgb(250, 225, 0));
+                content1.getChildren().add(node);
+                final Transition transition = createPathTransition(pathCircle, node);
+                transition.jumpTo(Duration.seconds(10).multiply(count * 1.0 / NUM_NODES1));
+                transition.play();
+            }
+            else if(9<count && count<20) {
+                Node node = new Circle(NODE_SIZE1 / 2, Color.rgb(144, 13, 255));
+                content1.getChildren().add(node);
+                final Transition transition = createPathTransition(pathCircle, node);
+                transition.jumpTo(Duration.seconds(10).multiply(count * 1.0 / NUM_NODES1));
+                transition.play();
+            }
+            else if(19<count && count<30) {
+                Node node = new Circle(NODE_SIZE1 / 2, Color.rgb(255, 1, 129));
+                content1.getChildren().add(node);
+                final Transition transition = createPathTransition(pathCircle, node);
+                transition.jumpTo(Duration.seconds(10).multiply(count * 1.0 / NUM_NODES1));
+                transition.play();
+            }
+            else{
+                Node node = new Circle(NODE_SIZE1 / 2, Color.rgb(50, 219, 240));
+                content1.getChildren().add(node);
+                final Transition transition = createPathTransition(pathCircle, node);
+                transition.jumpTo(Duration.seconds(10).multiply(count * 1.0 / NUM_NODES1));
+                transition.play();
+            }
+
+            }
+
+
+
+        Pane canvascircleapth = new Pane();
+        content1.relocate(0, 130);
+        canvascircleapth.getChildren().addAll(content1);
+
+
+        VBox vBox = new VBox(50,canvas1212,canvascircleapth);
         vBox.setAlignment(Pos.CENTER);
         vBox.setPrefWidth(425);
         vBox.setPrefHeight(575);
@@ -1467,10 +1472,10 @@ class Best implements EventHandler<ActionEvent> {
 //        vBox.setPrefHeight(575);
 
         return vBox;
-    };
-    void jump(MouseEvent M){
 
     }
+
+
     private PathTransition createPathTransition(Shape shape, Node node) {
         final PathTransition transition = new PathTransition(
                 Duration.seconds(10),
@@ -1483,7 +1488,19 @@ class Best implements EventHandler<ActionEvent> {
         transition.setInterpolator(Interpolator.LINEAR);
 
         return transition;
+};
+    private void resize(SVGPath svg, double width, double height) {
+
+        double originalWidth = svg.prefWidth(-1);
+        double originalHeight = svg.prefHeight(originalWidth);
+
+        double scaleX = width / originalWidth;
+        double scaleY = height / originalHeight;
+
+        svg.setScaleX(scaleX);
+        svg.setScaleY(scaleY);
     }
+
 
 
     @Override
