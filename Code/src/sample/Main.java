@@ -1378,9 +1378,9 @@ class Best implements EventHandler<ActionEvent> {
         circle1.relocate(250, 0);
         canvas122.getChildren().addAll(circle,circle1);
 
-         int NUM_NODES = 50;
-        double W = 200;
-        double H = 200;
+         int NUM_NODES = 64;
+        double W = 403;
+        double H = 403;
          double NODE_SIZE = H / 8.0;
 
         Pane content = new Pane();
@@ -1388,56 +1388,74 @@ class Best implements EventHandler<ActionEvent> {
             if(count<8) {
                 Node node = new Circle(NODE_SIZE / 2, Color.rgb(250, 225, 0));
                 content.getChildren().add(node);
-                count+=1;
+                count=count+1;
+                final Transition transition = createPathTransition(svg, node);
+                transition.jumpTo(Duration.seconds(10).multiply(count * 1.0 / NUM_NODES));
+                transition.play();
             }
-            else if(8<count<16) {
+            else if(8<count && count<16) {
                 Node node = new Circle(NODE_SIZE / 2, Color.rgb(144, 13, 255));
                 content.getChildren().add(node);
                 count+=1;
+                final Transition transition = createPathTransition(svg, node);
+                transition.jumpTo(Duration.seconds(10).multiply(count * 1.0 / NUM_NODES));
+                transition.play();
             }
-            else if(16<count<24) {
+            else if(16<count && count<24) {
                 Node node = new Circle(NODE_SIZE / 2, Color.rgb(255, 1, 129));
                 content.getChildren().add(node);
                 count+=1;
+                final Transition transition = createPathTransition(svg, node);
+                transition.jumpTo(Duration.seconds(10).multiply(count * 1.0 / NUM_NODES));
+                transition.play();
             }
-            else if(24<count<32) {
+            else if(24<count && count<32) {
                 Node node = new Circle(NODE_SIZE / 2, Color.rgb(50, 219, 240));
                 content.getChildren().add(node);
                 count+=1;
+                final Transition transition = createPathTransition(svg, node);
+                transition.jumpTo(Duration.seconds(10).multiply(count * 1.0 / NUM_NODES));
+                transition.play();
             }
-            else if(32<count<40) {
+            else if(32<count && count<40) {
                 Node node = new Circle(NODE_SIZE / 2, Color.rgb(250, 225, 0));
                 content.getChildren().add(node);
                 count+=1;
+                final Transition transition = createPathTransition(svg, node);
+                transition.jumpTo(Duration.seconds(10).multiply(count * 1.0 / NUM_NODES));
+                transition.play();
             }
-            else if(40<count<48) {
+            else if(40<count && count<48) {
                 Node node = new Circle(NODE_SIZE / 2, Color.rgb(144, 13, 255));
                 content.getChildren().add(node);
                 count+=1;
+                final Transition transition = createPathTransition(svg, node);
+                transition.jumpTo(Duration.seconds(10).multiply(count * 1.0 / NUM_NODES));
+                transition.play();
             }
-            else if(48<count<56) {
+            else if(48<count && count<56) {
                 Node node = new Circle(NODE_SIZE / 2, Color.rgb(255, 1, 129));
                 content.getChildren().add(node);
                 count+=1;
+                final Transition transition = createPathTransition(svg, node);
+                transition.jumpTo(Duration.seconds(10).multiply(count * 1.0 / NUM_NODES));
+                transition.play();
             }
-            else if(56<count<64) {
+            else if(56<count && count<64) {
                 Node node = new Circle(NODE_SIZE / 2, Color.rgb(50, 219, 240));
                 content.getChildren().add(node);
                 count+=1;
+                final Transition transition = createPathTransition(svg, node);
+                transition.jumpTo(Duration.seconds(10).multiply(count * 1.0 / NUM_NODES));
+                transition.play();
             }
-
-            final Transition transition = createPathTransition(svg, node);
-            transition.jumpTo(Duration.seconds(10).multiply(count * 1.0 / NUM_NODES));
-            transition.play();
         }
+        Pane canvas1212 = new Pane();
+        content.relocate(180, 180);
 
-        //        line5.setStroke(Color.rgb(250, 225, 0));
-//        line6.setStroke(Color.rgb(144, 13, 255));
-//        line7.setStroke(Color.rgb(255, 1, 129));
-//        line8.setStroke(Color.rgb(50, 219, 240));
+        canvas1212.getChildren().addAll(content);
 
-        VBox vBox = new VBox(50,content);
-        //      vBox.setOnMouseClicked();
+        VBox vBox = new VBox(50,canvas1212);
         vBox.setAlignment(Pos.CENTER);
         vBox.setPrefWidth(425);
         vBox.setPrefHeight(575);
