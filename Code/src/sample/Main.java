@@ -188,8 +188,8 @@ class Best implements EventHandler<ActionEvent> {
         textq.setX(-75);
         textq.setY(10);
         textq.setFont(Font.font("verdana", 25));
-        textq.setStroke(Color.rgb(255, 1, 129));
-        textq.setFill(Color.rgb(255, 1, 129));
+//        textq.setStroke(Color.rgb(255, 1, 129));
+//        textq.setFill(Color.rgb(255, 1, 129));
 
         Line dash = new Line(20, 40, 210, 40);
         dash.getStrokeDashArray().addAll(25d, 10d);
@@ -212,7 +212,6 @@ class Best implements EventHandler<ActionEvent> {
         LOADGAME1.relocate(100,215);
         imageView20.relocate(335,210);
         LOADGAME.getChildren().addAll(imageView10,imageView20,LOADGAME1);
-
         Pane bottom = new Pane();
         imageView40.relocate(10, 200);
         imageView50.relocate(300,200);
@@ -1356,7 +1355,7 @@ class Best implements EventHandler<ActionEvent> {
 
 
 //        MAINMENU
-
+//
         VBox vBox = new VBox(30,colorswitch,playbutton,LOADGAME,bottom);
         vBox.setAlignment(Pos.CENTER);
         vBox.setPrefWidth(425);
