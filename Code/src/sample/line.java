@@ -36,8 +36,8 @@ class line extends obstacle {
                 line.setStroke(Color.rgb(250, 225, 0));
                 line.setStrokeWidth(15);
                 Node node = line;
-                content1.getChildren().add(node);
-                final Transition transition = createPathTransition(linepath, node);
+                content1.getChildren().add(line);
+                final Transition transition = createPathTransition(linepath, line);
                 transition.jumpTo(Duration.seconds(10).multiply(count * 1.0 / 8));
                 transition.play();
             }else if(count==1 || count == 5) {
@@ -45,8 +45,8 @@ class line extends obstacle {
                 line.setStroke(Color.rgb(144, 13, 255));
                 line.setStrokeWidth(15);
                 Node node = line;
-                content1.getChildren().add(node);
-                final Transition transition = createPathTransition(linepath, node);
+                content1.getChildren().add(line);
+                final Transition transition = createPathTransition(linepath, line);
                 transition.jumpTo(Duration.seconds(10).multiply(count * 1.0 / 8));
                 transition.play();
             }else if(count==2 || count ==6) {
@@ -54,8 +54,8 @@ class line extends obstacle {
                 line.setStroke(Color.rgb(255, 1, 129));
                 Node node = line;
                 line.setStrokeWidth(15);
-                content1.getChildren().add(node);
-                final Transition transition = createPathTransition(linepath, node);
+                content1.getChildren().add(line);
+                final Transition transition = createPathTransition(linepath, line);
                 transition.jumpTo(Duration.seconds(10).multiply(count * 1.0 / 8));
                 transition.play();
             }
@@ -64,18 +64,15 @@ class line extends obstacle {
                 line.setStroke(Color.rgb(50, 219, 240));
                 line.setStrokeWidth(15);
                 Node node = line;
-                content1.getChildren().add(node);
-                final Transition transition = createPathTransition(linepath, node);
+                content1.getChildren().add(line);
+                final Transition transition = createPathTransition(linepath, line);
                 transition.jumpTo(Duration.seconds(10).multiply(count * 1.0 / 8));
                 transition.play();
             }
         }
         Pane canvascircleapth = new Pane();
-
-
         content1.relocate(-100, 0);
         canvascircleapth.getChildren().addAll(content1);
-
         return canvascircleapth;
 
         }

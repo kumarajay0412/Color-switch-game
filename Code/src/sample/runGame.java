@@ -5,6 +5,7 @@ import javafx.animation.AnimationTimer;
 import javafx.animation.KeyFrame;
 import javafx.animation.TranslateTransition;
 import javafx.collections.ObservableList;
+import javafx.fxml.Initializable;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -14,6 +15,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Arc;
+import javafx.scene.shape.Line;
+import javafx.scene.shape.Shape;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -21,40 +24,22 @@ import javafx.util.Duration;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.ResourceBundle;
 
-class runGame {
+class runGame implements Initializable {
     Ball ball = new Ball();
-
     int totalStar;
     int currStar;
-    List<Node> gameData;
-    List<Node> gameData1;
     ArrayList<Pane> obstacles = new ArrayList<>();
+    int X;
+    int Y;
+    List<Node> gameData1;
     int background = 0;
-//    line op = new line(0,-330,800,-330);
-//    threeCircle t = new threeCircle(210, 50);
-//    twocircle t2 = new twocircle(210,-200);
-
-    Star s1 = new Star(160,110);
-    Star s2 = new Star(160,360);
-    Star s3 = new Star(160, -310);
-//    Star s1 = new Star();
-//    threeCircle ta = new threeCircle(280, -450);
-//    threeCircle tb = new threeCircle(280, -950);
-//    threeCircle tc = new threeCircle(280, -1450);
-//    threeCircle td = new threeCircle(280, -1950);
-//    twocircle tw = new twocircle();
-    //circle t1 = new circle(210, 300);
-//    circle t2 = new circle(280, -200);
-//    circle t3 = new circle(280, -700);
-//    circle t4 = new circle(280, -1200);
-//    circle t5 = new circle(280, -1700);
     Group game = new Group();
-
-
     void displayScreen(Stage window) throws FileNotFoundException {
         game.getChildren().add(ball.position());
         Group root1 = new Group(game);
@@ -67,110 +52,110 @@ class runGame {
         //window.setScene();
     }
 
+    void circleObstacle() {
+
+    }
+
+    //void Obstacle() {
+//        obstacles.add(new circle(X, Y));
+//        obstacles.add(new line( 0, X, 0, Y));
+//
+
+        //if(obstacles.get(i) instanceof circle) {
+
+      //  }
+
     void start(Stage window, Scene scene) throws FileNotFoundException {
         scene.setOnMouseClicked(event -> {
             jump();
         });
-        int y=300;
-        int z=0;
-
-        while (z<10) {
-            Random rand = new Random();
-            int n = rand.nextInt(4);
-//            System.out.println(1);
-//            System.out.println(n);
-
-            switch(n) {
-                case 0:
-                    System.out.println(0);
-//                    Star s1 = new Star(110, y);
-//                    circle t1 = new circle(210, y);
-//                    y = y - 250;
-//                    Pane obj = t1.display();
-//                    Pane s = s1.display1();
-//                    obj.relocate(0, 130);
-//                    s.relocate(0, 130);
-//                    game.getChildren().addAll(obj, s);
-//                    obstacles.add(obj);
-//                    obstacles.add(s);
-//                    break;
-                    infinity in = new infinity(y);
-                    y=y-250;
-                    Pane obj = in.display();
-                    obj.relocate(0, 130);
-                    game.getChildren().addAll(obj);
-                    obstacles.add(obj);
-                    break;
-                case 1:
-//                    System.out.println(1);
-//                    Star s2 = new Star(110, y);
-//                    threeCircle t = new threeCircle(210, y);
-//                    y = y - 250;
-//                    Pane obj1 = t.display();
-//                    Pane st = s2.display1();
-//                    obj1.relocate(0, 130);
-//                    game.getChildren().addAll(obj1, st);
-//                    obstacles.add(obj1);
-//                    obstacles.add(st);
-//                    break;
-                case 2:
-                    System.out.println(3);
-                    line op = new line(0, y, 800, y);
-                    y = y - 250;
-                    Pane obj2 = op.display();
-                    obj2.relocate(0, 130);
-                    game.getChildren().add(obj2);
-                    obstacles.add(obj2);
-                    break;
-                case 3:
-                    System.out.println(4);
-
-                    rectangle re = new rectangle();
-                    Pane obj1 = re.display();
-                    obj1.relocate(0, 130);
-                    game.getChildren().addAll(obj1);
-                    obstacles.add(obj1);
-                    break;
-
-                default:
-                    break;
-            }
-
-            AnimationTimer timer = new AnimationTimer() {
+        AnimationTimer timer = new AnimationTimer() {
             @Override
             public void handle(long l) {
                 ball.position().toFront();
-                if (ball.getyHieght() < -300) {
-                    for(Pane j : obstacles) {
-                        j.setTranslateY(j.getTranslateY() + .1);
-                    }
-//                    obs1.setTranslateY(obs1.getTranslateY() + 1);
-////                        obs1.setTranslateY(obs1.getTranslateY() + 1);
-//                    obs2.setTranslateY(obs2.getTranslateY() + 1);
-//                    obs3.setTranslateY(obs3.getTranslateY() + 1);
-//                    st1.setTranslateY(st1.getTranslateY() + 1);
-//                    st2.setTranslateY(st2.getTranslateY() + 1);
-//                    st3.setTranslateY(st3.getTranslateY() + 1);
-////                    obs4.setTranslateY(obs4.getTranslateY() + 1);
-////                    obs5.setTranslateY(obs5.getTranslateY() + 1);
-////                    obs6.setTranslateY(obs6.getTranslateY() + 1);
-////                    obs7.setTranslateY(obs7.getTranslateY() + 1);
-//                    obs8.setTranslateY(obs8.getTranslateY() + 1);
-//                   // obs9.setTranslateY(obs9.getTranslateY() + 1);
-//                    //obs11.setTranslateY(obs11.getTranslateY() + 1);
 
+            }
+
+            void moveDown() {
+                if (ball.getyHieght() < -300) {
+                    for (Pane j : obstacles) {
+                        j.setTranslateY(j.getTranslateY() + .5);
+                    }
                 }
             }
+
+            void intersect() {
+//                for (Node j : gameData) {
+////                   System.out.println(gameData.size());
+////                    Shape l1 = (Shape) j;
+////                    if(!Shape.intersect(l1, ball.position()).getBoundsInLocal().isEmpty()) {
+////                        System.out.println("3423");
+////                    }
+////                }
+//                }
+            }
+
         };
         timer.start();
+//        int y = 300;
+//        int z = 0;
+//
+//        while (z < 10) {
+//            Random rand = new Random();
+//            int n = rand.nextInt(4);
+//            System.out.println(1);
+//            System.out.println(n);
+//
+//            switch (n) {
+//                case 0:
+//                    circle t1 = new circle(210, y);
+//                    y = y - 250;
+//                    Pane obj = t1.display();
+//                    obj.relocate(0, 130);
+//                    game.getChildren().addAll(obj);
+//                    obstacles.add(obj);
+//                    break;
+//                case 1:
+//                    line op = new line(0, y, 800, y);
+//                    y = y - 250;
+//                    Pane obj2 = op.display();
+//                    obj2.relocate(0, 130);
+//                    game.getChildren().add(obj2);
+//                    obstacles.add(obj2);
+//                    gameData = obj2.getChildren();
+//                    Pane obj4 = (Pane) gameData.get(0);
+//                    gameData = obj4.getChildren();
+//                    break;
+//            }
+//
+//            circle c1 = new circle(0, 50);
+//            Pane obj1 = c1.display();
+//            obj1.relocate(160, 130);
+//            //game.getChildren().add(obj1);
+////            gameData = obj1.getChildren();
+////            Pane obj4 = (Pane) gameData.get(0);
+////            gameData = obj4.getChildren();
+//
+////      rectangle re = new rectangle();
+////      Pane obj1 = re.display();
+////      obj1.relocate(+90, 130);
+////      game.getChildren().addAll(obj1);
+////      obstacles.add(obj1);
+////      System.out.println(3);
+//
+//
+//
+//            //Node p = (Node)
+//
+//
+//            z++;
+//
+//
+//        }
 
 
-            z++;
+        //Shape.intersect(, ball.position()).getBoundsInLocal().isEmpty())
 
-
-
-
-        }
 
 //        Text text4 = new Text("50 ");
 //        text4.setFont(Font.font("Verdana", 40));
@@ -270,34 +255,41 @@ class runGame {
 ////    {
 ////
 ////    }
+
 //
 //
     }
 
-    TranslateTransition translate = new TranslateTransition();
+        TranslateTransition translate = new TranslateTransition();
 
-    void jump() {
-        translate.stop();
-        ball.position().setTranslateY(ball.position().getTranslateY()-40);
-        ball.setyHieght((float) ball.position().getTranslateY());
-        ball.position().smoothProperty();
+        void jump () {
+            translate.stop();
+            ball.position().setTranslateY(ball.position().getTranslateY() - 40);
+            ball.setyHieght((float) ball.position().getTranslateY());
+            ball.position().smoothProperty();
 
-        translate.play();
-        background+=1;
-        if(background>=1) {
-            translate.setByY(ball.position().getTranslateY());
-            translate.setToY(+100);
-            translate.setDuration(Duration.millis(2200));
-            translate.setCycleCount(Animation.INDEFINITE);
-            translate.setAutoReverse(false);
-            translate.setNode(ball.position());
             translate.play();
+            background += 1;
+            if (background >= 1) {
+                translate.setByY(ball.position().getTranslateY());
+                translate.setToY(+100);
+                translate.setDuration(Duration.millis(2200));
+                translate.setCycleCount(Animation.INDEFINITE);
+                translate.setAutoReverse(false);
+                translate.setNode(ball.position());
+                translate.play();
+            }
         }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        
     }
-
-
-
-
 }
+
+
+
+
+
 
 

@@ -15,7 +15,7 @@ import java.io.FileNotFoundException;
 
 class infinity extends obstacle {
 
-    infinity(float Y) {
+    infinity(int x, float Y) {
         setyPosition(Y);
     }
 
