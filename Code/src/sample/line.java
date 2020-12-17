@@ -14,8 +14,6 @@ import java.io.FileNotFoundException;
 
 class line extends obstacle {
     Line linepath = new Line();
-
-
     line(float Sx, float Sy, float Ex, float Ey) {
         linepath.setStartX(Sx);
         linepath.setStartY(Sy);
@@ -26,7 +24,6 @@ class line extends obstacle {
     Pane display() throws FileNotFoundException {
         return makeObstacle();
     }
-
     @Override
     Pane makeObstacle() throws FileNotFoundException {
         Pane content1 = new Pane();
@@ -74,7 +71,6 @@ class line extends obstacle {
         content1.relocate(-100, 0);
         canvascircleapth.getChildren().addAll(content1);
         return canvascircleapth;
-
         }
     private PathTransition createPathTransition(Shape shape, Node node) {
         final PathTransition transition = new PathTransition(
@@ -87,6 +83,4 @@ class line extends obstacle {
         transition.setInterpolator(Interpolator.LINEAR);
         return transition;
     };
-
-
 }

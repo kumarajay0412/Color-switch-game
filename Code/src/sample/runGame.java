@@ -34,6 +34,7 @@ import java.util.ResourceBundle;
 class runGame implements Initializable {
     Ball ball = new Ball();
     int totalStar;
+    Text textpause;
     int currStar;
     ArrayList<Pane> obstacles = new ArrayList<>();
     ArrayList<Pane> gameData1 = new ArrayList<>();
@@ -64,7 +65,7 @@ class runGame implements Initializable {
         op = new Scene(root2, 425, 750, Color.rgb(39, 39, 39));
         window.setScene(op);
         start(window, op);
-        game.getChildren().add(score());
+        game.getChildren().add(score(window));
         //window.setScene();
     }
     float y = 300;
@@ -151,20 +152,19 @@ class runGame implements Initializable {
                 break;
             }
         }
-
-
     }
     void start(Stage window, Scene scene) throws FileNotFoundException {
         scene.setOnMouseClicked(event -> {
             jump();
         });
-        Image imagepause = new Image(new FileInputStream("/Users/ajay/IdeaProjects/FINAL_PROJECT/Code/src/pause.png"));
+        Image imagepause = new Image(new FileInputStream("/Users/robinkumar/IdeaProjects/FINAL_PROJECT/Code/src/pause.png"));
         ImageView pause= new ImageView(imagepause);
         pause.setFitHeight(100);
         pause.setFitWidth(100);
 
         pause.setOnMouseClicked(event -> {
             try {
+                System.out.println("3456");
                 window.setScene(new Scene(pa.resume(), 425, 750, Color.rgb(39,39,39)));
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
@@ -186,8 +186,6 @@ class runGame implements Initializable {
                     e.printStackTrace();
                 }
             }
-
-
             void moveDown() {
                 if (ball.getyHieght() < -300) {
                     for (Pane j : obstacles) {
@@ -200,7 +198,7 @@ class runGame implements Initializable {
                 allcolors.add(Color.rgb(144, 13, 255));
                 allcolors.add(Color.rgb(250, 225, 0));
                 allcolors.add(Color.rgb(255, 1, 129));
-                //allcolors.add(Color.rgb(50, 219, 240));
+                allcolors.add(Color.rgb(50, 219, 240));
                 Random rand = new Random();
                 int c = rand.nextInt(3);
                 ball.setColor(allcolors.get(c));
@@ -228,6 +226,7 @@ class runGame implements Initializable {
                         Shape l1 = (Shape) n1;
                         if(!Shape.intersect(l1, ball.position()).getBoundsInLocal().isEmpty()) {
                             getRandomColorOnBall();
+                            p1.getChildren().remove(n1);
                         }
                     }
                 }
@@ -237,8 +236,8 @@ class runGame implements Initializable {
                         Shape l1 = (Shape) n1;
                         if(!Shape.intersect(l1, ball.position()).getBoundsInLocal().isEmpty()) {
                             Score++;
-
-
+                            textpause.setText(String.valueOf(Score));
+                            p1.getChildren().remove(n1);
                         }
                     }
                 }
@@ -253,7 +252,7 @@ class runGame implements Initializable {
                             if(!ball.getColor().equals(l1.getStroke())) {
                                 window.setScene(new Scene(exit.goodgame(), 425, 750, Color.rgb(39,39,39)));
                                 this.stop();
-                                r1.getChildren().removeAll(l1);
+//                                r1.getChildren().removeAll(l1);
                             }
                         }
                     }
@@ -300,19 +299,27 @@ class runGame implements Initializable {
         timer.start();
     }
 
-    Pane score() throws FileNotFoundException {
+    Pane score(Stage window) throws FileNotFoundException {
         String str = String.valueOf(Score);
 
-        Text textpause = new Text(str);
-        textpause.setFont(Font.font ("Verdana", 40));
+        textpause = new Text(str);
+        textpause.setFont(Font.font ("Verdana", 30));
         textpause.setFill(Color.WHITE);
 
-        Image imagepause = new Image(new FileInputStream("/Users/ajay/IdeaProjects/FINAL_PROJECT/Code/src/pause.png"));
+        Image imagepause = new Image(new FileInputStream("/Users/robinkumar/IdeaProjects/FINAL_PROJECT/Code/src/pause.png"));
         ImageView pause= new ImageView(imagepause);
         pause.setFitHeight(100);
         pause.setFitWidth(100);
 
         pause.setOnMouseClicked(event -> {
+            System.out.println("3456");
+            try {
+                System.out.println("3456");
+                window.setScene(new Scene(pa.resume(), 425, 750, Color.rgb(39,39,39)));
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+
 
         });
 

@@ -18,12 +18,12 @@ import java.io.FileNotFoundException;
 
 class pauseScreen {
     VBox resume() throws FileNotFoundException {
-        Image imageplay = new Image(new FileInputStream("/Users/ajay/IdeaProjects/FINAL_PROJECT/Code/src/PLAY.png"));
+        Image imageplay = new Image(new FileInputStream("/Users/robinkumar/IdeaProjects/FINAL_PROJECT/Code/src/PLAY.png"));
         ImageView play= new ImageView(imageplay);
         play.setFitHeight(150);
         play.setFitWidth(150);
 
-        Image imagestar2 = new Image(new FileInputStream("/Users/ajay/IdeaProjects/FINAL_PROJECT/Code/src/home.png"));
+        Image imagestar2 = new Image(new FileInputStream("/Users/robinkumar/IdeaProjects/FINAL_PROJECT/Code/src/home.png"));
         ImageView home= new ImageView(imagestar2);
         home.setFitHeight(100);
         home.setFitWidth(100);
@@ -43,7 +43,7 @@ class pauseScreen {
         textpause1.relocate(130,0);
         textpause1canva.getChildren().addAll(textpause1);
 
-        Image imagesave = new Image(new FileInputStream("/Users/ajay/IdeaProjects/FINAL_PROJECT/Code/src/save.png"));
+        Image imagesave = new Image(new FileInputStream("/Users/robinkumar/IdeaProjects/FINAL_PROJECT/Code/src/save.png"));
         ImageView save= new ImageView(imagesave);
         save.setFitHeight(150);
         save.setFitWidth(150);

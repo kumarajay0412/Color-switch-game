@@ -30,7 +30,7 @@ public class Best{
         window = primaryStage;
     }
     VBox mainMenu() throws FileNotFoundException {
-        Image image = new Image(new FileInputStream("/Users/ajay/IdeaProjects/FINAL_PROJECT/Code/src/2.gif"));
+        Image image = new Image(new FileInputStream("/Users/robinkumar/IdeaProjects/FINAL_PROJECT/Code/src/2.gif"));
         ImageView imageView = new ImageView(image);
         imageView.setFitHeight(200);
         imageView.setFitWidth(350);
@@ -72,12 +72,12 @@ public class Best{
         Group lineg1 = new Group(dash1);
         lineg1.relocate(-100,-20);
 
-        Image image10 = new Image(new FileInputStream("/Users/ajay/IdeaProjects/FINAL_PROJECT/Code/src/10.png"));
+        Image image10 = new Image(new FileInputStream("/Users/robinkumar/IdeaProjects/FINAL_PROJECT/Code/src/10.png"));
         ImageView imageView10 = new ImageView(image10);
         imageView10.setFitHeight(65);
         imageView10.setFitWidth(80);
 
-        Image image20 = new Image(new FileInputStream("/Users/ajay/IdeaProjects/FINAL_PROJECT/Code/src/20.png"));
+        Image image20 = new Image(new FileInputStream("/Users/robinkumar/IdeaProjects/FINAL_PROJECT/Code/src/20.png"));
         ImageView imageView20 = new ImageView(image20);
         imageView20.setFitHeight(65);
         imageView20.setFitWidth(80);
@@ -93,17 +93,17 @@ public class Best{
 
 //        Bottom started
 
-        Image image40 = new Image(new FileInputStream("/Users/ajay/IdeaProjects/FINAL_PROJECT/Code/src/help.png"));
+        Image image40 = new Image(new FileInputStream("/Users/robinkumar/IdeaProjects/FINAL_PROJECT/Code/src/help.png"));
         ImageView imageView40 = new ImageView(image40);
         imageView40.setFitHeight(100);
         imageView40.setFitWidth(100);
 
-        Image image50 = new Image(new FileInputStream("/Users/ajay/IdeaProjects/FINAL_PROJECT/Code/src/exit.png"));
+        Image image50 = new Image(new FileInputStream("/Users/robinkumar/IdeaProjects/FINAL_PROJECT/Code/src/exit.png"));
         ImageView imageView50 = new ImageView(image50);
         imageView50.setFitHeight(100);
         imageView50.setFitWidth(100);
 
-        Image imagemiddele = new Image(new FileInputStream("/Users/ajay/IdeaProjects/FINAL_PROJECT/Code/src/4.png"));
+        Image imagemiddele = new Image(new FileInputStream("/Users/robinkumar/IdeaProjects/FINAL_PROJECT/Code/src/4.png"));
         ImageView imageView3 = new ImageView(imagemiddele);
         imageView3.setX(268.0f);
         imageView3.setY(119.0f);
