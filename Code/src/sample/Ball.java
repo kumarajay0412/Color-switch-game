@@ -5,12 +5,27 @@ import javafx.scene.shape.Circle;
 
 class Ball {
     private Circle circle;
+
     Ball() {
         circle = new Circle(10, 60, 10);
-        circle.setFill(Color.YELLOW);
+        //circle.setFill(getColor());
         circle.setCenterX(210);
         circle.setCenterY(600);
     }
+
+    public void changeColor() {
+        circle.setFill(Color.YELLOW);
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
+    }
+
+    private Color color;
 
     private float yHieght;
 
@@ -39,6 +54,7 @@ class Ball {
     }
 
     Circle position() {
+        circle.setFill(getColor());
         return circle;
     }
 }

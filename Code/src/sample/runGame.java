@@ -22,6 +22,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import javax.swing.*;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.net.URL;
@@ -35,12 +36,26 @@ class runGame implements Initializable {
     int totalStar;
     int currStar;
     ArrayList<Pane> obstacles = new ArrayList<>();
+    ArrayList<Pane> gameData1 = new ArrayList<>();
+    ArrayList<Pane> onecol = new ArrayList<>();
+//    ArrayList<Pane> threeCol = new ArrayList<>();
+    ArrayList<Pane> colorSwit = new ArrayList<>();
+    ArrayList<Pane> star = new ArrayList<>();
+    exitPage exit = new exitPage();
+    pauseScreen pa = new pauseScreen();
     int X;
     int Y;
     List<Node> gameData;
+//    List<Node> gameData3;
+//    List<Node> gameData2;
+//    List<Node> gameData4;
     int background = 0;
     Group game = new Group();
+
+    int Score = 0;
+
     void displayScreen(Stage window) throws FileNotFoundException {
+        ball.setColor(Color.rgb(144, 13, 255));
         game.getChildren().add(ball.position());
         Group root1 = new Group(game);
         Scene op = new Scene(root1, 425, 750, Color.rgb(39, 39, 39));
@@ -49,6 +64,7 @@ class runGame implements Initializable {
         op = new Scene(root2, 425, 750, Color.rgb(39, 39, 39));
         window.setScene(op);
         start(window, op);
+        game.getChildren().add(score());
         //window.setScene();
     }
     float y = 300;
@@ -56,25 +72,28 @@ class runGame implements Initializable {
     void circleObstacle(float y) throws FileNotFoundException {
         circle t1 = new circle(210, y);
         Star st = new Star(210, y);
-        colorSwitch cs = new colorSwitch(210,y+80);
+        colorSwitch cs = new colorSwitch(210, y + 200 );
         Pane obj = t1.display();
-        Pane str = st.display1();
+        Pane str = st.colorChane();
         Pane cs1 = cs.colorChane();
         obj.relocate(0, 130);
         str.relocate(0, 130);
         cs1.relocate(0, 130);
         game.getChildren().addAll(obj, str, cs1);
         obstacles.add(obj);
+        star.add(str);
         obstacles.add(str);
+        onecol.add(obj);
         obstacles.add(cs1);
+        colorSwit.add(cs1);
     }
     void threeCircleObstacle(Float y) throws FileNotFoundException {
         threeCircle t2 = new threeCircle(210, y);
         Star st2 = new Star(210, y);
-        colorSwitch cs1 = new colorSwitch(210,y+100);
+        colorSwitch cs1 = new colorSwitch(210,y+200);
 
         Pane obj = t2.display();
-        Pane str1 = st2.display1();
+        Pane str1 = st2.colorChane();
         Pane cs2 = cs1.colorChane();
 
         obj.relocate(0, 130);
@@ -84,26 +103,30 @@ class runGame implements Initializable {
         game.getChildren().addAll(obj, str1, cs2);
         obstacles.add(obj);
         obstacles.add(str1);
+        onecol.add(obj);
+        star.add(str1);
         obstacles.add(cs2);
+        colorSwit.add(cs2);
 
     }
     void lineObstacle(float y) throws FileNotFoundException {
         line op = new line(0, y, 800, y);
         Star st3 = new Star(210, y+40);
-        colorSwitch cs2 = new colorSwitch(210,y+50);
+        colorSwitch cs2 = new colorSwitch(210,y+120);
         Pane obj2 = op.display();
-        Pane str3 = st3.display1();
+        Pane str3 = st3.colorChane();
         Pane cs3 = cs2.colorChane();
         obj2.relocate(0, 130);
         str3.relocate(0, 130);
         cs3.relocate(0, 130);
         game.getChildren().addAll(obj2, str3, cs3);
         obstacles.add(obj2);
+        gameData1.add(obj2);
         obstacles.add(str3);
+        star.add(str3);
         obstacles.add(cs3);
-        gameData = obj2.getChildren();
-        Pane obj4 = (Pane) gameData.get(0);
-        gameData = obj4.getChildren();
+        colorSwit.add(cs3);
+
 
     }
 
@@ -114,15 +137,15 @@ class runGame implements Initializable {
         switch (n) {
             case 0 -> {
                 circleObstacle(y);
-                y = y - 250;
+                y = y - 300;
             }
             case 1 -> {
                 threeCircleObstacle(y);
-                y = y - 250;
+                y = y - 300;
             }
             case 2 -> {
                 lineObstacle(y);
-                y = y - 250;
+                y = y - 300;
             }
             default -> {
                 break;
@@ -135,6 +158,18 @@ class runGame implements Initializable {
         scene.setOnMouseClicked(event -> {
             jump();
         });
+        Image imagepause = new Image(new FileInputStream("/Users/robinkumar/IdeaProjects/FINAL_PROJECT/Code/src/pause.png"));
+        ImageView pause= new ImageView(imagepause);
+        pause.setFitHeight(100);
+        pause.setFitWidth(100);
+
+        pause.setOnMouseClicked(event -> {
+            try {
+                window.setScene(new Scene(pa.resume(), 425, 750, Color.rgb(39,39,39)));
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        });
         AnimationTimer timer = new AnimationTimer() {
             @Override
             public void handle(long l) {
@@ -145,188 +180,150 @@ class runGame implements Initializable {
                     e.printStackTrace();
                 }
                 moveDown();
-
+                try {
+                    intersect();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
             }
+
 
             void moveDown() {
                 if (ball.getyHieght() < -300) {
                     for (Pane j : obstacles) {
-                        j.setTranslateY(j.getTranslateY() + 1);
+                        j.setTranslateY(j.getTranslateY() + 10);
                     }
                 }
             }
+            public void getRandomColorOnBall() {
+                ArrayList<Color> allcolors=new ArrayList<>();
+                allcolors.add(Color.rgb(144, 13, 255));
+                allcolors.add(Color.rgb(250, 225, 0));
+                allcolors.add(Color.rgb(255, 1, 129));
+                //allcolors.add(Color.rgb(50, 219, 240));
+                Random rand = new Random();
+                int c = rand.nextInt(3);
+                ball.setColor(allcolors.get(c));
+            }
 
-            void intersect() {
-                for (Node j : gameData) {
-                    Shape l1 = (Shape) j;
-                    if(!Shape.intersect(l1, ball.position()).getBoundsInLocal().isEmpty()) {
-                        System.out.println("3423");
+            void intersect() throws FileNotFoundException {
+                for (Pane j1 : gameData1) {
+                    gameData = j1.getChildren();
+                    Pane obj4 = (Pane) gameData.get(0);
+                    gameData = obj4.getChildren();
+                    for(Node j :gameData) {
+                        Shape l1 = (Shape) j;
+                        if(!Shape.intersect(l1, ball.position()).getBoundsInLocal().isEmpty()) {
+                            if(!ball.getColor().equals(l1.getStroke())) {
+                                window.setScene(new Scene(exit.goodgame(), 425, 750, Color.rgb(39,39,39)));
+                                this.stop();
+                            }
+                        }
                     }
                 }
+
+                for(Pane p1 : colorSwit) {
+                    gameData = p1.getChildren();
+                    for(Node n1 : gameData) {
+                        Shape l1 = (Shape) n1;
+                        if(!Shape.intersect(l1, ball.position()).getBoundsInLocal().isEmpty()) {
+                            getRandomColorOnBall();
+                        }
+                    }
                 }
+                for(Pane p1 : star) {
+                    gameData = p1.getChildren();
+                    for(Node n1 : gameData) {
+                        Shape l1 = (Shape) n1;
+                        if(!Shape.intersect(l1, ball.position()).getBoundsInLocal().isEmpty()) {
+                            Score++;
+
+
+                        }
+                    }
+                }
+
+                for(Pane r1: onecol) {
+                    gameData = r1.getChildren();
+                    Group obj4 = (Group) gameData.get(0);
+                    gameData = obj4.getChildren();
+                    for(Node j :gameData) {
+                        Shape l1 = (Shape) j;
+                        if(!Shape.intersect(l1, ball.position()).getBoundsInLocal().isEmpty()) {
+                            if(!ball.getColor().equals(l1.getStroke())) {
+                                window.setScene(new Scene(exit.goodgame(), 425, 750, Color.rgb(39,39,39)));
+                                this.stop();
+                                r1.getChildren().removeAll(l1);
+                            }
+                        }
+                    }
+                }
+
+//                for(Pane r1: threeCol) {
+//                    gameData = r1.getChildren();
+//                    Group obj4 = (Group) gameData.get(0);
+//                    gameData4 = obj4.getChildren();
+//                    for(Node j :gameData4) {
+//                        Shape l1 = (Shape) j;
+//                        if(!Shape.intersect(l1, ball.position()).getBoundsInLocal().isEmpty()) {
+//                            if(!ball.getColor().equals(l1.getStroke())) {
+//                                window.close();
+//                                //System.out.println("34567");
+//                            }
+//                        }
+//                    }
+//                    Group obj5 = (Group) gameData.get(1);
+//                    gameData2 = obj5.getChildren();
+//                    for(Node j :gameData2) {
+//                        Shape l1 = (Shape) j;
+//                        if(!Shape.intersect(l1, ball.position()).getBoundsInLocal().isEmpty()) {
+//                            if(!ball.getColor().equals(l1.getStroke())) {
+//                                window.close();
+//                                //System.out.println("34567");
+//                            }
+//                        }
+//                    }
+//                    Group obj6 = (Group) gameData.get(2);
+//                    gameData3 = obj6.getChildren();
+//                    for(Node j :gameData3) {
+//                        Shape l1 = (Shape) j;
+//                        if(!Shape.intersect(l1, ball.position()).getBoundsInLocal().isEmpty()) {
+//                            if(!ball.getColor().equals(l1.getStroke())) {
+//                                window.close();
+//                                //System.out.println("34567");
+//                            }
+//                        }
+//                    }
+//                }
+            }
         };
         timer.start();
-//        int y = 300;
-//        int z = 0;
-//
-//        while (z < 10) {
-//            Random rand = new Random();
-//            int n = rand.nextInt(4);
-//            System.out.println(1);
-//            System.out.println(n);
-//
-//            switch (n) {
-//                case 0:
-//                    circle t1 = new circle(210, y);
-//                    y = y - 250;
-//                    Pane obj = t1.display();
-//                    obj.relocate(0, 130);
-//                    game.getChildren().addAll(obj);
-//                    obstacles.add(obj);
-//                    break;
-//                case 1:
-//                    line op = new line(0, y, 800, y);
-//                    y = y - 250;
-//                    Pane obj2 = op.display();
-//                    obj2.relocate(0, 130);
-//                    game.getChildren().add(obj2);
-//                    obstacles.add(obj2);
-//                    gameData = obj2.getChildren();
-//                    Pane obj4 = (Pane) gameData.get(0);
-//                    gameData = obj4.getChildren();
-//                    break;
-//            }
-//
-//            circle c1 = new circle(0, 50);
-//            Pane obj1 = c1.display();
-//            obj1.relocate(160, 130);
-//            //game.getChildren().add(obj1);
-////            gameData = obj1.getChildren();
-////            Pane obj4 = (Pane) gameData.get(0);
-////            gameData = obj4.getChildren();
-//
-////      rectangle re = new rectangle();
-////      Pane obj1 = re.display();
-////      obj1.relocate(+90, 130);
-////      game.getChildren().addAll(obj1);
-////      obstacles.add(obj1);
-////      System.out.println(3);
-//
-//
-//
-//            //Node p = (Node)
-//
-//
-//            z++;
-//
-//
-//        }
+    }
 
+    Pane score() throws FileNotFoundException {
+        String str = String.valueOf(Score);
 
-        //Shape.intersect(, ball.position()).getBoundsInLocal().isEmpty())
+        Text textpause = new Text(str);
+        textpause.setFont(Font.font ("Verdana", 40));
+        textpause.setFill(Color.WHITE);
 
+        Image imagepause = new Image(new FileInputStream("/Users/robinkumar/IdeaProjects/FINAL_PROJECT/Code/src/pause.png"));
+        ImageView pause= new ImageView(imagepause);
+        pause.setFitHeight(100);
+        pause.setFitWidth(100);
 
-//        Text text4 = new Text("50 ");
-//        text4.setFont(Font.font("Verdana", 40));
-//        text4.setFill(Color.WHITE);
-//        Pane canvasstar = new Pane();
-//        text4.relocate(60, 0);
-//        canvasstar.getChildren().addAll(text4);
-//
-//        Pane obs1 = t.display();
-//        Pane obs2 = t1.display();
-//        Pane obs3 = t2.display();
-//        Pane st1 = s1.display1();
-//        Pane st2 = s2.display1();
-//        Pane st3 = s3.display1();
-//
-////        Pane obs3 = ta.display();
-////        Pane obs4 = t2.display();
-////        Pane obs5 = tb.display();
-////        Pane obs6 = t3.display();
-////        Pane obs7 = tc.display();
-//        Pane obs8 = op.display();
-//        //Pane obs9 = td.display();
-//        //Pane obs11 = l.display();
-//
-//        obs2.relocate(0, 130);
-//        obs3.relocate(0, 130);
-//        obs1.relocate(0, 130);
-//        s1.display1().relocate(0, 130);
-//        s2.display1().relocate(0, 130);
-//        s3.display1().relocate(0, 130);
-//        //s1.display().relocate(-70, 130);
-//        obs1.relocate(0, 130);
-//        obs1.relocate(0, 130);
-////        obs4.relocate(-70, 130);
-////        obs5.relocate(-70, 130);
-////        obs6.relocate(-70, 130);
-////        obs7.relocate(-70, 130);
-//        obs8.relocate(0, 130);
-//        //bs9.relocate(-70, 130);
-////        obs11.relocate(-70, 130);
-//        game.getChildren().add(obs1);
-////        game.getChildren().add()
-//        game.getChildren().add(obs2);
-//        game.getChildren().add(obs3);
-////        game.getChildren().add(obs4);
-////        game.getChildren().add(obs5);
-////        game.getChildren().add(obs6);
-////        game.getChildren().add(obs7);
-//        game.getChildren().add(obs8);
-//        game.getChildren().add(s1.display1());
-//        game.getChildren().add(s2.display1());
-//        game.getChildren().add(s3.display1());
-//        //game.getChildren().add(obs9);
-//        //game.getChildren().add(obs11);
-//        //game.getChildren().add(obstacles.get(1));
-//        AnimationTimer timer = new AnimationTimer() {
-//            @Override
-//            public void handle(long l) {
-//                ball.position().toFront();
-//                if (ball.getyHieght() < -300) {
-//                    obs1.setTranslateY(obs1.getTranslateY() + 1);
-////                        obs1.setTranslateY(obs1.getTranslateY() + 1);
-//                    obs2.setTranslateY(obs2.getTranslateY() + 1);
-//                    obs3.setTranslateY(obs3.getTranslateY() + 1);
-//                    st1.setTranslateY(st1.getTranslateY() + 1);
-//                    st2.setTranslateY(st2.getTranslateY() + 1);
-//                    st3.setTranslateY(st3.getTranslateY() + 1);
-////                    obs4.setTranslateY(obs4.getTranslateY() + 1);
-////                    obs5.setTranslateY(obs5.getTranslateY() + 1);
-////                    obs6.setTranslateY(obs6.getTranslateY() + 1);
-////                    obs7.setTranslateY(obs7.getTranslateY() + 1);
-//                    obs8.setTranslateY(obs8.getTranslateY() + 1);
-//                   // obs9.setTranslateY(obs9.getTranslateY() + 1);
-//                    //obs11.setTranslateY(obs11.getTranslateY() + 1);
-//
-//                }
-//            }
-//        };
-//        timer.start();
-//    }
-////
-////        obs1.relocate(-70,130);
-////        obs2.relocate(-70,130);
-////        game.getChildren().
-////
-////    addAll(obs1, obs2);
-////        System.out.println(ball.getyHieght());
-////
-////
-////    gameData =obs1.getChildren();
-////    Group op1 = (Group) gameData.get(0);
-////    gameData1 =op1.getChildren();
-////    Arc v = (Arc) (gameData1.get(1));
-////
-////        if(obs1.getBoundsInParent.intersects(ball.position().getBoundsInParent))
-////
-////    {
-////
-////    }
+        pause.setOnMouseClicked(event -> {
 
-//
-//
+        });
+
+        Pane pausecanva = new Pane();
+        pause.relocate(300,10);
+        textpause.relocate(30, 30);
+        pausecanva.getChildren().addAll(textpause,pause);
+        pausecanva.relocate(0,360);
+
+        return pausecanva;
+
     }
 
         TranslateTransition translate = new TranslateTransition();
@@ -349,7 +346,6 @@ class runGame implements Initializable {
                 translate.play();
             }
         }
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

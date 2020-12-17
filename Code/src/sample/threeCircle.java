@@ -61,7 +61,7 @@ class threeCircle extends obstacle {
         rotate = helperFunction(rotate, 720, 11000);
 
         RotateTransition rotate1 = new RotateTransition();
-        rotate1 = helperFunction(rotate1, -720, 11000);
+        rotate1 = helperFunction(rotate1, 720, 11000);
 
         RotateTransition rotate3 = new RotateTransition();
         rotate3 = helperFunction(rotate3, 720, 11000);
