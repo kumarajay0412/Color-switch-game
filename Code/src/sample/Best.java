@@ -114,7 +114,7 @@ public class Best{
 
         bottom.getChildren().addAll(imageView40,imageView50);
 
-        threeCircle threeCircleObstacle = new threeCircle();
+        threeCircle threeCircleObstacle = new threeCircle(300,150);
         Pane groupcircleobstacle = threeCircleObstacle.makeObstacle();
 
         Pane playbutton = new Pane();
@@ -132,13 +132,16 @@ public class Best{
         });
 
         imageView3.setOnMouseClicked(event -> {
-
-            startGame(window);
+            try {
+                startGame(window);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
         });
         return vBox;
     }
 
-    void startGame(Stage window) {
+    void startGame(Stage window) throws FileNotFoundException {
         runGame game = new runGame();
         game.displayScreen(window);
     }

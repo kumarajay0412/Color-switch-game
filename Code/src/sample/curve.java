@@ -21,5 +21,6 @@ class curve extends Shapes {
         return arc6;
     }
     void create() {
+
     }
 }

@@ -6,13 +6,21 @@ import javafx.scene.shape.Circle;
 class Ball {
     private Circle circle;
     Ball() {
-        circle = new Circle(100, 60, 10);
-        circle.setFill(Color.WHITE);
+        circle = new Circle(10, 60, 10);
+        circle.setFill(Color.YELLOW);
         circle.setCenterX(210);
         circle.setCenterY(600);
     }
 
     private float yHieght;
+
+    public float getyHieght() {
+        return yHieght;
+    }
+
+    public void setyHieght(float yHieght) {
+        this.yHieght = yHieght;
+    }
 
     private final float gravity=10;
 
