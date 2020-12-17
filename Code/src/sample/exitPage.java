@@ -27,14 +27,14 @@ class exitPage {
         textArea.setStroke(Color.rgb(221, 136, 39));
         textArea.setStrokeWidth(80);
 
-        Text text = new Text("           SCORE    ");
+        Text text = new Text("             SCORE    ");
         text.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, 40));
         text.setTextAlignment(TextAlignment.CENTER);
         Group stack =new Group();
         stack.getChildren().addAll(textArea, text);
 
 
-        Image image = new Image(new FileInputStream("/Users/robinkumar/IdeaProjects/FINAL_PROJECT/Code/src/2.gif"));
+        Image image = new Image(new FileInputStream("/Users/ajay/IdeaProjects/FINAL_PROJECT/Code/src/2.gif"));
         ImageView imageView = new ImageView(image);
         imageView.setFitHeight(200);
         imageView.setFitWidth(350);
@@ -59,7 +59,7 @@ class exitPage {
         canvas122.getChildren().addAll(text1);
 
 
-        Text text2 = new Text("    BEST SCORE   ");
+        Text text2 = new Text("        BEST SCORE   ");
         text2.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, 40));
         text2.setTextAlignment(TextAlignment.JUSTIFY);
 
@@ -77,17 +77,17 @@ class exitPage {
         canvas121.getChildren().addAll(text3);
         canvas121.setTranslateY(0);
 
-        Image imagestar1 = new Image(new FileInputStream("/Users/robinkumar/IdeaProjects/FINAL_PROJECT/Code/src/stars.png"));
+        Image imagestar1 = new Image(new FileInputStream("/Users/ajay/IdeaProjects/FINAL_PROJECT/Code/src/stars.png"));
         ImageView imagestar= new ImageView(imagestar1);
         imagestar.setFitHeight(70);
         imagestar.setFitWidth(140);
 
-        Image imagestar21 = new Image(new FileInputStream("/Users/robinkumar/IdeaProjects/FINAL_PROJECT/Code/src/home.png"));
+        Image imagestar21 = new Image(new FileInputStream("/Users/ajay/IdeaProjects/FINAL_PROJECT/Code/src/home.png"));
         ImageView home1= new ImageView(imagestar21);
         home1.setFitHeight(100);
         home1.setFitWidth(100);
 
-        Image image111 = new Image(new FileInputStream("/Users/robinkumar/IdeaProjects/FINAL_PROJECT/Code/src/repeat.png"));
+        Image image111 = new Image(new FileInputStream("/Users/ajay/IdeaProjects/FINAL_PROJECT/Code/src/repeat.png"));
         ImageView imagerepeat= new ImageView(image111);
         imagerepeat.setFitHeight(100);
         imagerepeat.setFitWidth(100);
@@ -116,12 +116,13 @@ class exitPage {
         home1.relocate(310, 0);
 
         bottomend.getChildren().addAll(imagestar,imagerepeat,home1);
-        bottomend.setTranslateY(70);
+        bottomend.setTranslateY(35);
 
         canvas122.setTranslateY(-10);
         canvas121.setTranslateY(0);
-        canvasstar1.setTranslateY(20);
-        canvasstar1.setTranslateX(-10);
+        canvasstar1.setTranslateY(-30);
+        canvasstar1.setTranslateX(-5);
+        canvasstar.setTranslateY(-25);
         RotateTransition rotaterepeat = new RotateTransition();
         rotaterepeat.setAxis(Rotate.Z_AXIS);
         rotaterepeat.setToAngle(-720);

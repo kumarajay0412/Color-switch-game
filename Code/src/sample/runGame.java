@@ -158,7 +158,7 @@ class runGame implements Initializable {
         scene.setOnMouseClicked(event -> {
             jump();
         });
-        Image imagepause = new Image(new FileInputStream("/Users/robinkumar/IdeaProjects/FINAL_PROJECT/Code/src/pause.png"));
+        Image imagepause = new Image(new FileInputStream("/Users/ajay/IdeaProjects/FINAL_PROJECT/Code/src/pause.png"));
         ImageView pause= new ImageView(imagepause);
         pause.setFitHeight(100);
         pause.setFitWidth(100);
@@ -307,7 +307,7 @@ class runGame implements Initializable {
         textpause.setFont(Font.font ("Verdana", 40));
         textpause.setFill(Color.WHITE);
 
-        Image imagepause = new Image(new FileInputStream("/Users/robinkumar/IdeaProjects/FINAL_PROJECT/Code/src/pause.png"));
+        Image imagepause = new Image(new FileInputStream("/Users/ajay/IdeaProjects/FINAL_PROJECT/Code/src/pause.png"));
         ImageView pause= new ImageView(imagepause);
         pause.setFitHeight(100);
         pause.setFitWidth(100);

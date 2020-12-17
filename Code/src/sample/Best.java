@@ -1,5 +1,7 @@
 package sample;
 
+import javafx.animation.ScaleTransition;
+import javafx.animation.Timeline;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.image.Image;
@@ -14,6 +16,7 @@ import javafx.scene.shape.Path;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -27,7 +30,7 @@ public class Best{
         window = primaryStage;
     }
     VBox mainMenu() throws FileNotFoundException {
-        Image image = new Image(new FileInputStream("/Users/robinkumar/IdeaProjects/FINAL_PROJECT/Code/src/2.gif"));
+        Image image = new Image(new FileInputStream("/Users/ajay/IdeaProjects/FINAL_PROJECT/Code/src/2.gif"));
         ImageView imageView = new ImageView(image);
         imageView.setFitHeight(200);
         imageView.setFitWidth(350);
@@ -69,49 +72,74 @@ public class Best{
         Group lineg1 = new Group(dash1);
         lineg1.relocate(-100,-20);
 
-        Image image10 = new Image(new FileInputStream("/Users/robinkumar/IdeaProjects/FINAL_PROJECT/Code/src/10.png"));
+        Image image10 = new Image(new FileInputStream("/Users/ajay/IdeaProjects/FINAL_PROJECT/Code/src/10.png"));
         ImageView imageView10 = new ImageView(image10);
         imageView10.setFitHeight(65);
         imageView10.setFitWidth(80);
 
-        Image image20 = new Image(new FileInputStream("/Users/robinkumar/IdeaProjects/FINAL_PROJECT/Code/src/20.png"));
+        Image image20 = new Image(new FileInputStream("/Users/ajay/IdeaProjects/FINAL_PROJECT/Code/src/20.png"));
         ImageView imageView20 = new ImageView(image20);
         imageView20.setFitHeight(65);
         imageView20.setFitWidth(80);
 
         Group LOADGAME1 = new Group(path,textq,lineg,lineg1);
         Pane LOADGAME = new Pane();
-        imageView10.relocate(10, 210);
-        LOADGAME1.relocate(100,215);
-        imageView20.relocate(335,210);
+        imageView10.relocate(10, 90);
+        LOADGAME1.relocate(100,95);
+        imageView20.relocate(335,90);
         LOADGAME.getChildren().addAll(imageView10,imageView20,LOADGAME1);
 
             //Load Game Ended
 
 //        Bottom started
 
-        Image image40 = new Image(new FileInputStream("/Users/robinkumar/IdeaProjects/FINAL_PROJECT/Code/src/help.png"));
+        Image image40 = new Image(new FileInputStream("/Users/ajay/IdeaProjects/FINAL_PROJECT/Code/src/help.png"));
         ImageView imageView40 = new ImageView(image40);
         imageView40.setFitHeight(100);
         imageView40.setFitWidth(100);
 
-        Image image50 = new Image(new FileInputStream("/Users/robinkumar/IdeaProjects/FINAL_PROJECT/Code/src/exit.png"));
+        Image image50 = new Image(new FileInputStream("/Users/ajay/IdeaProjects/FINAL_PROJECT/Code/src/exit.png"));
         ImageView imageView50 = new ImageView(image50);
         imageView50.setFitHeight(100);
         imageView50.setFitWidth(100);
 
-        Image imagemiddele = new Image(new FileInputStream("/Users/robinkumar/IdeaProjects/FINAL_PROJECT/Code/src/4.png"));
+        Image imagemiddele = new Image(new FileInputStream("/Users/ajay/IdeaProjects/FINAL_PROJECT/Code/src/4.png"));
         ImageView imageView3 = new ImageView(imagemiddele);
         imageView3.setX(268.0f);
         imageView3.setY(119.0f);
         imageView3.setFitHeight(67);
         imageView3.setFitWidth(67);
 
-        Pane bottom = new Pane();
-        imageView40.relocate(10, 200);
-        imageView50.relocate(300,200);
-        imageView3.relocate(0, 0);
+                ScaleTransition scaleTransition = new ScaleTransition();
+        scaleTransition.setDuration(Duration.millis(2000));
+        scaleTransition.setNode(LOADGAME1);
+        scaleTransition.setByY(.2);
+        scaleTransition.setByX(.2);
+        scaleTransition.setCycleCount(Timeline.INDEFINITE);
+        scaleTransition.setAutoReverse(true);
+        scaleTransition.play();
 
+        ScaleTransition scaleTransition1 = new ScaleTransition();
+        scaleTransition1.setDuration(Duration.millis(1000));
+        scaleTransition1.setNode(imageView10);
+        scaleTransition1.setByY(.1);
+        scaleTransition1.setByX(.1);
+        scaleTransition1.setCycleCount(Timeline.INDEFINITE);
+        scaleTransition1.setAutoReverse(true);
+        scaleTransition1.play();
+
+        ScaleTransition scaleTransition2 = new ScaleTransition();
+        scaleTransition2.setDuration(Duration.millis(1000));
+        scaleTransition2.setNode(imageView20);
+        scaleTransition2.setByY(.1);
+        scaleTransition2.setByX(.1);
+        scaleTransition2.setCycleCount(Timeline.INDEFINITE);
+        scaleTransition2.setAutoReverse(true);
+        scaleTransition2.play();
+
+        Pane bottom = new Pane();
+        imageView40.relocate(0, 140);
+        imageView50.relocate(300,140);
         bottom.getChildren().addAll(imageView40,imageView50);
 
         threeCircle threeCircleObstacle = new threeCircle(300,150);
@@ -119,7 +147,11 @@ public class Best{
 
         Pane playbutton = new Pane();
         groupcircleobstacle.relocate(-70, 130);
-        playbutton.getChildren().addAll(groupcircleobstacle);
+        imageView3.setTranslateY(0);
+        imageView3.setTranslateX(20);
+        playbutton.getChildren().addAll(groupcircleobstacle,imageView3);
+
+
 
         VBox vBox = new VBox(30,colorswitch,playbutton,imageView3,LOADGAME,bottom);
         vBox.setAlignment(Pos.CENTER);
