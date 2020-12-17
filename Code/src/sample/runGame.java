@@ -128,7 +128,6 @@ class runGame implements Initializable {
         obstacles.add(cs3);
         colorSwit.add(cs3);
 
-
     }
 
     void Obstacle() throws FileNotFoundException {
@@ -213,7 +212,7 @@ class runGame implements Initializable {
                         Shape l1 = (Shape) j;
                         if(!Shape.intersect(l1, ball.position()).getBoundsInLocal().isEmpty()) {
                             if(!ball.getColor().equals(l1.getStroke())) {
-                                window.setScene(new Scene(exit.goodgame(), 425, 750, Color.rgb(39,39,39)));
+                                window.setScene(new Scene(exit.goodgame(textpause.getText()), 425, 750, Color.rgb(39,39,39)));
                                 this.stop();
                             }
                         }
@@ -236,7 +235,7 @@ class runGame implements Initializable {
                         Shape l1 = (Shape) n1;
                         if(!Shape.intersect(l1, ball.position()).getBoundsInLocal().isEmpty()) {
                             Score++;
-                            textpause.setText(String.valueOf(Score));
+                            textpause.setText(String.valueOf(Score/4));
                             p1.getChildren().remove(n1);
                         }
                     }
@@ -250,7 +249,7 @@ class runGame implements Initializable {
                         Shape l1 = (Shape) j;
                         if(!Shape.intersect(l1, ball.position()).getBoundsInLocal().isEmpty()) {
                             if(!ball.getColor().equals(l1.getStroke())) {
-                                window.setScene(new Scene(exit.goodgame(), 425, 750, Color.rgb(39,39,39)));
+                                window.setScene(new Scene(exit.goodgame(textpause.getText()), 425, 750, Color.rgb(39,39,39)));
                                 this.stop();
 //                                r1.getChildren().removeAll(l1);
                             }

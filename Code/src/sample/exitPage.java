@@ -16,9 +16,12 @@ import javafx.util.Duration;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 
 class exitPage {
-    VBox goodgame() throws FileNotFoundException {
+    ArrayList<Integer> op = new ArrayList<>();
+
+    VBox goodgame(String score) throws FileNotFoundException {
         Line textArea = new Line();
         textArea.setStartX(0.0);
         textArea.setStartY(0.0);
@@ -50,13 +53,22 @@ class exitPage {
         textArea1.setStroke(Color.rgb(221, 136, 39));
         textArea1.setStrokeWidth(80);
 
-        Text text1 = new Text("200");
+        Text text1 = new Text(score);
         text1.setFont(Font.font ("Verdana", 40));
         text1.setFill(Color.WHITE);
 
         Pane canvas122 = new Pane();
         text1.relocate(180, 0);
         canvas122.getChildren().addAll(text1);
+        int i=Integer.parseInt(score);
+        op.add(i);
+        int max;
+        max=op.get(0);
+        for(int h: op) {
+            if(h>max) {
+                max=h;
+            }
+        }
 
 
         Text text2 = new Text("        BEST SCORE   ");
@@ -68,7 +80,7 @@ class exitPage {
         stack2.getChildren().addAll(textArea1, text2);
         stack2.setTranslateY(20);
 
-        Text text3 = new Text("200");
+        Text text3 = new Text(String.valueOf(max));
         text3.setFont(Font.font ("Verdana", 40));
         text3.setFill(Color.WHITE);
 
