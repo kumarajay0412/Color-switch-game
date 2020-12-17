@@ -24,11 +24,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf739684-5864-4dc7-bda2-db75deebb894" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/src/sample/exitPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/Code/src/sample/exitPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/src/sample/runGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/Code/src/sample/runGame.java" afterDir="false" />
-    </list>
+    <list default="true" id="bf739684-5864-4dc7-bda2-db75deebb894" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -147,7 +143,7 @@
       <workItem from="1608101668005" duration="9743000" />
       <workItem from="1608138911004" duration="39243000" />
       <workItem from="1608223135325" duration="363000" />
-      <workItem from="1608223658272" duration="2399000" />
+      <workItem from="1608223658272" duration="2918000" />
     </task>
     <task id="LOCAL-00001" summary="texting">
       <created>1605595117119</created>
@@ -282,7 +278,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608224396654</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="game">
+      <created>1608226686540</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1608226686540</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -342,10 +345,10 @@
       <screen x="0" y="23" width="1440" height="797" />
     </state>
     <state x="458" y="175" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.23.1440.797@0.23.1440.797" timestamp="1608193525245" />
-    <state x="327" y="23" key="CommitChangelistDialog2" timestamp="1608224396355">
+    <state x="327" y="23" key="CommitChangelistDialog2" timestamp="1608226686321">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state x="327" y="23" key="CommitChangelistDialog2/0.23.1440.797@0.23.1440.797" timestamp="1608224396355" />
+    <state x="327" y="23" key="CommitChangelistDialog2/0.23.1440.797@0.23.1440.797" timestamp="1608226686321" />
     <state x="100" y="85" width="1240" height="700" key="DiffContextDialog" timestamp="1605929807667">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -414,11 +417,11 @@
     <state x="208" y="43" key="SettingsEditor/0.23.1440.797@0.23.1440.797" timestamp="1606964127918" />
     <state x="208" y="23" key="SettingsEditor/0.23.1440.806@0.23.1440.806" timestamp="1605551315602" />
     <state x="208" y="23" key="SettingsEditor/0.23.1440.808@0.23.1440.808" timestamp="1605594893049" />
-    <state x="320" y="191" key="Vcs.Push.Dialog.v2" timestamp="1608224416501">
+    <state x="320" y="191" key="Vcs.Push.Dialog.v2" timestamp="1608226719979">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
     <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1606386096939" />
-    <state x="320" y="191" key="Vcs.Push.Dialog.v2/0.23.1440.797@0.23.1440.797" timestamp="1608224416501" />
+    <state x="320" y="191" key="Vcs.Push.Dialog.v2/0.23.1440.797@0.23.1440.797" timestamp="1608226719979" />
     <state x="533" y="344" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1608223890839">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
