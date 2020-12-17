@@ -6,13 +6,36 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.ArcType;
 
-public class colorSwitch {
+class colorSwitch {
+    public float getX() {
+        return x;
+    }
+
+    public void setX(float x) {
+        this.x = x;
+    }
+
+    public float getY() {
+        return y;
+    }
+
+    public void setY(float y) {
+        this.y = y;
+    }
+
+    private float x;
+    private float y;
+
+    colorSwitch(float x, float y){
+        setX(x);
+        setY(y);
+    }
 
     Pane colorChane() {
-        Arc colorchange1 = new Arc(100.0f, 100.0f, 25.0f, 25.0f, 0.0f, 90.0f);
-        Arc colorchange2 = new Arc(100.0f, 100.0f, 25.0f, 25.0f, 90.0f, 90.0f);
-        Arc colorchange3 = new Arc(100.0f, 100.0f, 25.0f, 25.0f, 180.0f, 90.0f);
-        Arc colorchange4 = new Arc(100.0f, 100.0f, 25.0f, 25.0f, 270.0f, 90.0f);
+        Arc colorchange1 = new Arc(getX(), getY(), 10.0f, 10.0f, 0.0f, 90.0f);
+        Arc colorchange2 = new Arc(getX(), getY(), 10.0f, 10.0f, 90.0f, 90.0f);
+        Arc colorchange3 = new Arc(getX(), getY(), 10.0f, 10.0f, 180.0f, 90.0f);
+        Arc colorchange4 = new Arc(getX(), getY(), 10.0f, 10.0f, 270.0f, 90.0f);
         colorchange1.setType(ArcType.ROUND);
         colorchange2.setType(ArcType.ROUND);
         colorchange3.setType(ArcType.ROUND);

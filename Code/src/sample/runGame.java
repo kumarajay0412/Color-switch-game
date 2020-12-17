@@ -37,7 +37,7 @@ class runGame implements Initializable {
     ArrayList<Pane> obstacles = new ArrayList<>();
     int X;
     int Y;
-    List<Node> gameData1;
+    List<Node> gameData;
     int background = 0;
     Group game = new Group();
     void displayScreen(Stage window) throws FileNotFoundException {
@@ -51,20 +51,86 @@ class runGame implements Initializable {
         start(window, op);
         //window.setScene();
     }
+    float y = 300;
 
-    void circleObstacle() {
+    void circleObstacle(float y) throws FileNotFoundException {
+        circle t1 = new circle(210, y);
+        Star st = new Star(210, y);
+        colorSwitch cs = new colorSwitch(210,y+80);
+        Pane obj = t1.display();
+        Pane str = st.display1();
+        Pane cs1 = cs.colorChane();
+        obj.relocate(0, 130);
+        str.relocate(0, 130);
+        cs1.relocate(0, 130);
+        game.getChildren().addAll(obj, str, cs1);
+        obstacles.add(obj);
+        obstacles.add(str);
+        obstacles.add(cs1);
+    }
+    void threeCircleObstacle(Float y) throws FileNotFoundException {
+        threeCircle t2 = new threeCircle(210, y);
+        Star st2 = new Star(210, y);
+        colorSwitch cs1 = new colorSwitch(210,y+100);
+
+        Pane obj = t2.display();
+        Pane str1 = st2.display1();
+        Pane cs2 = cs1.colorChane();
+
+        obj.relocate(0, 130);
+        str1.relocate(0, 130);
+        cs2.relocate(0, 130);
+
+        game.getChildren().addAll(obj, str1, cs2);
+        obstacles.add(obj);
+        obstacles.add(str1);
+        obstacles.add(cs2);
+
+    }
+    void lineObstacle(float y) throws FileNotFoundException {
+        line op = new line(0, y, 800, y);
+        Star st3 = new Star(210, y+40);
+        colorSwitch cs2 = new colorSwitch(210,y+50);
+        Pane obj2 = op.display();
+        Pane str3 = st3.display1();
+        Pane cs3 = cs2.colorChane();
+        obj2.relocate(0, 130);
+        str3.relocate(0, 130);
+        cs3.relocate(0, 130);
+        game.getChildren().addAll(obj2, str3, cs3);
+        obstacles.add(obj2);
+        obstacles.add(str3);
+        obstacles.add(cs3);
+        gameData = obj2.getChildren();
+        Pane obj4 = (Pane) gameData.get(0);
+        gameData = obj4.getChildren();
 
     }
 
-    //void Obstacle() {
-//        obstacles.add(new circle(X, Y));
-//        obstacles.add(new line( 0, X, 0, Y));
-//
+    void Obstacle() throws FileNotFoundException {
+        Random r = new Random();
+        int n = r.nextInt(3);
 
-        //if(obstacles.get(i) instanceof circle) {
+        switch (n) {
+            case 0 -> {
+                circleObstacle(y);
+                y = y - 250;
+            }
+            case 1 -> {
+                threeCircleObstacle(y);
+                y = y - 250;
+            }
+            case 2 -> {
+                lineObstacle(y);
+                y = y - 250;
+            }
+            default -> {
+                break;
+            }
+        }
 
-      //  }
 
+    }
     void start(Stage window, Scene scene) throws FileNotFoundException {
         scene.setOnMouseClicked(event -> {
             jump();
@@ -73,28 +139,31 @@ class runGame implements Initializable {
             @Override
             public void handle(long l) {
                 ball.position().toFront();
+                try {
+                    Obstacle();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+                moveDown();
 
             }
 
             void moveDown() {
                 if (ball.getyHieght() < -300) {
                     for (Pane j : obstacles) {
-                        j.setTranslateY(j.getTranslateY() + .5);
+                        j.setTranslateY(j.getTranslateY() + 1);
                     }
                 }
             }
 
             void intersect() {
-//                for (Node j : gameData) {
-////                   System.out.println(gameData.size());
-////                    Shape l1 = (Shape) j;
-////                    if(!Shape.intersect(l1, ball.position()).getBoundsInLocal().isEmpty()) {
-////                        System.out.println("3423");
-////                    }
-////                }
-//                }
-            }
-
+                for (Node j : gameData) {
+                    Shape l1 = (Shape) j;
+                    if(!Shape.intersect(l1, ball.position()).getBoundsInLocal().isEmpty()) {
+                        System.out.println("3423");
+                    }
+                }
+                }
         };
         timer.start();
 //        int y = 300;
@@ -281,9 +350,14 @@ class runGame implements Initializable {
             }
         }
 
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        
+        try {
+            Obstacle();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }
 

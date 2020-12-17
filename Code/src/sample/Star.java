@@ -58,7 +58,8 @@ class Star implements OP {
         LineTo linee5 = new LineTo(10, 50);
         path.getElements().add(moveTo);
         path.getElements().addAll(linee1, linee2, linee3, linee4, linee5);
-        Pane root = new Pane(path);
+        Pane root = new Pane();
+        root.getChildren().add(path);
         root.setScaleX(.3);
         root.setScaleY(.3);
         root.relocate(getxPosition(), getyPosition());
