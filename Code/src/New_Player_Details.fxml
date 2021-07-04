@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Arc?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="480.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="NewPlayerDetails">
+   <children>
+      <Label layoutY="141.0" prefHeight="54.0" prefWidth="515.0" style="-fx-background-color: #ffa733;" text="         ENTER YOUR NAME" textFill="WHITE">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="NameText" layoutX="141.0" layoutY="225.0" prefHeight="46.0" prefWidth="193.0" />
+      <Label layoutY="312.0" prefHeight="54.0" prefWidth="515.0" style="-fx-background-color: #ffa733;" text="         ENTER  USER-NAME" textFill="WHITE">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="UNameText" layoutX="141.0" layoutY="394.0" prefHeight="46.0" prefWidth="193.0" />
+      <Button fx:id="submit" layoutX="141.0" layoutY="497.0" mnemonicParsing="false" onAction="#dosubmit" opacity="0.6" prefHeight="81.0" prefWidth="201.0" text="SUBMIT">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="DISAPPEAR" />
+         </cursor>
+         <effect>
+            <InnerShadow />
+         </effect>
+      </Button>
+      <Group id="obs1" fx:id="obs11" layoutX="174.0" layoutY="57.0" scaleX="0.2" scaleY="0.2">
+         <children>
+            <Arc fill="#ff0181" length="90.0" radiusX="100.0" radiusY="100.0" startAngle="180.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+            <Arc fill="#32dbf0" length="90.0" radiusX="100.0" radiusY="100.0" startAngle="90.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+            <Arc fill="#900dff" length="90.0" radiusX="100.0" radiusY="100.0" startAngle="270.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+            <Arc fill="#fae100" length="90.0" radiusX="100.0" radiusY="100.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+            <Circle fill="#272727" radius="70.0" stroke="BLACK" strokeType="INSIDE" />
+         </children>
+      </Group>
+      <Group id="obs1" fx:id="obs22" layoutX="100.0" layoutY="57.0" scaleX="0.2" scaleY="0.2">
+         <children>
+            <Arc fill="#ff0181" length="90.0" radiusX="100.0" radiusY="100.0" startAngle="180.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+            <Arc fill="#32dbf0" length="90.0" radiusX="100.0" radiusY="100.0" startAngle="90.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+            <Arc fill="#900dff" length="90.0" radiusX="100.0" radiusY="100.0" startAngle="270.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+            <Arc fill="#fae100" length="90.0" radiusX="100.0" radiusY="100.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+            <Circle fill="#272727" radius="70.0" stroke="BLACK" strokeType="INSIDE" />
+         </children>
+      </Group>
+      <Label layoutX="41.0" layoutY="10.0" prefHeight="94.0" prefWidth="268.0" text="C    L    R" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="48.0" />
+         </font>
+      </Label>
+      <Label layoutX="256.0" layoutY="22.0" lineSpacing="1.0" prefHeight="70.0" prefWidth="254.0" text="SWITCH" textFill="#eaeaea">
+         <font>
+            <Font name="System Bold" size="48.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

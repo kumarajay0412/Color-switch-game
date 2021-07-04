@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Arc?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="1000.0" prefWidth="1000.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Try2">
+   <children>
+      <Group fx:id="circle" layoutX="13.0" layoutY="-147.0" scaleX="0.35" scaleY="0.35">
+         <children>
+            <SVGPath content="M 150 300 Q 150 50 400 50 L 400 100 Q 200 100 200 300 L 150 300 " fill="#900dff" />
+            <SVGPath content="M 150 300 Q 150 50 400 50 L 400 100 Q 200 100 200 300 L 150 300 " fill="#ff0181" layoutX="250.0" rotate="90.0" />
+            <SVGPath content="M 150 300 Q 150 50 400 50 L 400 100 Q 200 100 200 300 L 150 300 " fill="#32dbf0" layoutY="250.0" rotate="-90.0" />
+            <SVGPath content="M 150 300 Q 150 50 400 50 L 400 100 Q 200 100 200 300 L 150 300 " fill="#fae100" layoutX="250.0" layoutY="250.0" rotate="180.0" />
+         </children>
+      </Group>
+      <Group layoutX="423.0" layoutY="346.0">
+         <children>
+            <Label prefHeight="72.0" prefWidth="206.0" text="C    L    R" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="48.0" />
+               </font>
+            </Label>
+         </children>
+      </Group>
+      <Group id="obs1" fx:id="obs1" layoutX="480.0" layoutY="384.0" scaleX="0.2" scaleY="0.2">
+         <children>
+            <Arc fill="#ff0181" length="90.0" radiusX="100.0" radiusY="100.0" startAngle="180.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+            <Arc fill="#32dbf0" length="90.0" radiusX="100.0" radiusY="100.0" startAngle="90.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+            <Arc fill="#900dff" length="90.0" radiusX="100.0" radiusY="100.0" startAngle="270.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+            <Arc fill="#fae100" length="90.0" radiusX="100.0" radiusY="100.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+            <Circle fill="#272727" radius="70.0" stroke="BLACK" strokeType="INSIDE" />
+         </children>
+      </Group>
+      <Group id="obs1" fx:id="obs11" layoutX="555.0" layoutY="384.0" scaleX="0.2" scaleY="0.2">
+         <children>
+            <Arc fill="#ff0181" length="90.0" radiusX="100.0" radiusY="100.0" startAngle="180.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+            <Arc fill="#32dbf0" length="90.0" radiusX="100.0" radiusY="100.0" startAngle="90.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+            <Arc fill="#900dff" length="90.0" radiusX="100.0" radiusY="100.0" startAngle="270.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+            <Arc fill="#fae100" length="90.0" radiusX="100.0" radiusY="100.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+            <Circle fill="#272727" radius="70.0" stroke="BLACK" strokeType="INSIDE" />
+         </children>
+      </Group>
+      <Label layoutX="500.0" layoutY="418.0" lineSpacing="1.0" prefHeight="58.0" prefWidth="194.0" text="S W I T C H" textFill="#eaeaea">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Label>
+      <Group layoutX="589.0" layoutY="485.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#900dff" height="11.0" layoutY="15.0" rotate="90.0" scaleX="0.9" scaleY="0.9" stroke="BLACK" strokeType="INSIDE" width="40.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#900dff" height="11.0" scaleX="0.9" scaleY="0.9" stroke="BLACK" strokeType="INSIDE" width="40.0" />
+         </children>
+      </Group>
+      <Group layoutX="-166.0" layoutY="260.0" scaleX="0.5" scaleY="0.5">
+         <children>
+            <SVGPath content="M 150 300 Q 150 50 400 50 L 400 100 Q 200 100 200 300 L 150 300 " fill="#ff0181" layoutX="250.0" rotate="90.0" />
+            <SVGPath content="M 150 300 Q 150 50 400 50 L 400 100 Q 200 100 200 300 L 150 300 " fill="#32dbf0" layoutY="250.0" rotate="-90.0" />
+            <SVGPath content="M 150 300 Q 150 50 400 50 L 400 100 Q 200 100 200 300 L 150 300 " fill="#fae100" layoutX="250.0" layoutY="250.0" rotate="180.0" />
+         </children>
+      </Group>
+      <SVGPath content="M 150 300 Q 150 50 400 50 L 400 100 Q 200 100 200 300 L 150 300 " fill="#900dff" layoutX="362.0" layoutY="19.0" scaleX="0.5" scaleY="0.5" />
+   </children>
+</AnchorPane>
